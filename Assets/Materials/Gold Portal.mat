@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Gold Portal
+  m_Shader: {fileID: -6465566751694194690, guid: c68b79727b14d414ab8e93e5bd6df746, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_8b644006b85a41c68c6a0cfe39f1f47b:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_0aa8efdbff9b405c8d141e55c7b7f21a: 3
+    - Vector1_58d0fd5ad8454dbe827aec1c8ec6ce8f: 0.2
+    - Vector1_e8ad064fa4a244b1a8aaa128ba1745f0: 30
+    - Vector1_f69cab1c5435462d82b44695911a4ab0: 5
+    m_Colors:
+    - Color_6f83cfec5a6e4721b7cca3bfe4b5f3e5: {r: 6.8501396, g: 6.8142753, b: 0, a: 0}
+  m_BuildTextureStacks: []

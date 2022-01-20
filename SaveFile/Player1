@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <fileName>Player1</fileName>
+  <name>Aaaa</name>
+  <maxHealth>100</maxHealth>
+  <currentHealth>100</currentHealth>
+  <baseDefence>2</baseDefence>
+  <currentDefence>0</currentDefence>
+  <currentLevel>1</currentLevel>
+  <maxLevel>30</maxLevel>
+  <baseExp>50</baseExp>
+  <currentExp>0</currentExp>
+  <levelBuff>0.1</levelBuff>
+  <stamina>3</stamina>
+  <strength>3</strength>
+  <agility>3</agility>
+  <intellect>0</intellect>
+</CharacterProfile>

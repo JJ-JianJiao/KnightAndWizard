@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <fileName>Player5</fileName>
+  <name>Pppppppp</name>
+  <maxHealth>100</maxHealth>
+  <currentHealth>100</currentHealth>
+  <baseDefence>2</baseDefence>
+  <currentDefence>0</currentDefence>
+  <currentLevel>1</currentLevel>
+  <maxLevel>30</maxLevel>
+  <baseExp>50</baseExp>
+  <currentExp>0</currentExp>
+  <levelBuff>0.1</levelBuff>
+  <stamina>2</stamina>
+  <strength>2</strength>
+  <agility>0</agility>
+  <intellect>5</intellect>
+</CharacterProfile>
