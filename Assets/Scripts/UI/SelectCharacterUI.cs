@@ -263,9 +263,9 @@ public class SelectCharacterUI : MonoBehaviour
 
     private CharacterProfile GetCharacterProfileData()
     {
-        CharacterProfile cp = new CharacterProfile("Knight");
+        CharacterProfile cp = new CharacterProfile(currentCharacter);
 
-        cp.fileName = "Empty";
+        //cp.fileName = "Empty";
         cp.name = characterNameInput.text;
         cp.stamina = int.Parse(staminaText.text);
         cp.strength = int.Parse(strengthText.text);

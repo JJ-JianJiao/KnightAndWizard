@@ -44,6 +44,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
         }
     }
 
+
     IEnumerator Transition(string SceneName, TransitionDestination.DestinationTag destinationTag) {
         //TODO: save data
         SaveManager.Instance.SavePlayerDataPlayerPrefs();
@@ -94,7 +95,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
         
     }
 
-    IEnumerator LoadLevel(string scene, CharacterProfile cp)
+    IEnumerator SaveLevel(string scene, CharacterProfile cp)
     {
         SceneFader fade = Instantiate(sceneFaderPrefab);
         if (scene != "")
@@ -106,7 +107,48 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
 
             //save data
             //SaveManager.Instance.SavePlayerDataPlayerPrefs();
-            SaveManager.Instance.SavePlayerDataXML(cp);
+            SaveManager.Instance.SaveNewPlayerDataXML(cp);
+
+            yield return StartCoroutine(fade.FadeIn(2f));
+            yield break;
+        }
+
+    }
+
+    IEnumerator LoadLevel(string scene, CharacterProfile cp)
+    {
+        SceneFader fade = Instantiate(sceneFaderPrefab);
+        if (scene != "")
+        {
+            yield return StartCoroutine(fade.FadeOut(2f));
+
+            yield return SceneManager.LoadSceneAsync(scene);
+            yield return player = Instantiate(playerPrefab, GameManager.Instance.GetEntrance().position, GameManager.Instance.GetEntrance().rotation);
+
+            GameManager.Instance.playerStates.fileName = cp.fileName;
+            GameManager.Instance.playerStates.characterClass = cp.characterClass;
+            GameManager.Instance.playerStates.characterName = cp.name;
+
+
+            GameManager.Instance.playerStates.characterData.currentHealth = cp.currentHealth;
+            GameManager.Instance.playerStates.characterData.maxHealth = cp.maxHealth;
+            GameManager.Instance.playerStates.characterData.baseDefence = cp.baseDefence;
+            GameManager.Instance.playerStates.characterData.currentDefence = cp.currentDefence;
+            GameManager.Instance.playerStates.characterData.currentLevel = cp.currentLevel;
+            GameManager.Instance.playerStates.characterData.maxLevel = cp.maxLevel;
+            GameManager.Instance.playerStates.characterData.baseExp = cp.baseExp;
+            GameManager.Instance.playerStates.characterData.currentExp = cp.currentExp;
+            GameManager.Instance.playerStates.characterData.levelBuff = cp.levelBuff;
+
+
+            GameManager.Instance.playerStates.attackData.attackRange = cp.attackRange;
+            GameManager.Instance.playerStates.attackData.skillRange = cp.skillRange;
+            GameManager.Instance.playerStates.attackData.coolDown = cp.coolDown;
+            GameManager.Instance.playerStates.attackData.criticalMultiplier = cp.criticalMultiplier;
+            GameManager.Instance.playerStates.attackData.criticalChance = cp.criticalChance;
+            GameManager.Instance.playerStates.attackData.minDamage = cp.minDamage;
+            GameManager.Instance.playerStates.attackData.maxDamage = cp.maxDamage;
+            //SaveManager.Instance.playerFileName = cp.fileName;
 
             yield return StartCoroutine(fade.FadeIn(2f));
             yield break;
@@ -118,13 +160,21 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
         StartCoroutine(LoadLevel(SaveManager.Instance.SceneName));
     }
 
+
+    public void TransitionToLoadGame(CharacterProfile characterProfile)
+    {
+        //StartCoroutine(SaveLevel(characterProfile.sceneName, characterProfile));
+        //TODO: sceneName need to be saved
+        StartCoroutine(LoadLevel("Dungeons01", characterProfile));
+    }
+
     public void TransitionToFirstLevel() {
         StartCoroutine(LoadLevel("Dungeons01"));
     }
 
     public void TransitionToFirstLevel(CharacterProfile cp)
     {
-        StartCoroutine(LoadLevel("Dungeons01", cp));
+        StartCoroutine(SaveLevel("Dungeons01", cp));
     }
 
     public void TransitionToMain() {

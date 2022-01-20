@@ -39,6 +39,10 @@ public class PlayersProfile {
 public class CharacterProfile
 {
     public string fileName;
+    public string characterClass;
+
+    public string sceneName;
+
     public string name;
     public int maxHealth;
     public int currentHealth;
@@ -50,13 +54,13 @@ public class CharacterProfile
     public int baseExp;
     public int currentExp;
     public float levelBuff;
-    internal float attackRange;
-    internal float skillRange;
-    internal float coolDown;
-    internal float criticalMultiplier;
-    internal float criticalChance;
-    internal int minDamage;
-    internal int maxDamage;
+    public float attackRange;
+    public float skillRange;
+    public float coolDown;
+    public float criticalMultiplier;
+    public float criticalChance;
+    public int minDamage;
+    public int maxDamage;
 
     public int stamina;
     public int strength;
@@ -69,10 +73,12 @@ public class CharacterProfile
     public CharacterProfile(string type)
     {
         if (type == "Knight") {
+            sceneName = "Dungeons01";
+            characterClass = "Knight";
             maxHealth = 100;
             currentHealth = 100;
             baseDefence = 2;
-            baseDefence = 2;
+            currentDefence = 2;
             currentLevel = 1;
             maxLevel = 30;
             baseExp = 50;
@@ -94,10 +100,12 @@ public class CharacterProfile
         }
         else if (type == "Wizard")
         {
+            sceneName = "Dungeons01";
+            characterClass = "Wizard";
             maxHealth = 100;
             currentHealth = 100;
             baseDefence = 2;
-            baseDefence = 2;
+            currentDefence = 2;
             currentLevel = 1;
             maxLevel = 30;
             baseExp = 50;
@@ -118,6 +126,35 @@ public class CharacterProfile
             intellect = 0;
         }
     }
+
+    public string GetBasicInfo() {
+        string str = "\n MaxHealth: " + maxHealth.ToString();
+        str += "\n currentHealth: " + currentHealth.ToString();
+        str += "\n baseDefence: " + baseDefence.ToString();
+        str += "\n currentDefence: " + currentDefence.ToString();
+        str += "\n stamina: " + stamina.ToString();
+        str += "\n strength: " + strength.ToString();
+        str += "\n agility: " + agility.ToString();
+        str += "\n intellect: " + intellect.ToString();
+        return str;
+    }
+
+    public string GetAttackInfo()
+    {
+        string str = "\n currentLevel: " + currentLevel.ToString();
+        str += "\n maxLevel: " + maxLevel.ToString();
+        str += "\n baseExp: " + baseExp.ToString();
+        str += "\n currentExp: " + currentExp.ToString();
+        str += "\n levelBuff: " + levelBuff.ToString();
+        str += "\n attackRange: " + attackRange.ToString();
+        str += "\n skillRange: " + skillRange.ToString();
+        str += "\n coolDown: " + coolDown.ToString();
+        str += "\n minDamage: " + minDamage.ToString();
+        str += "\n maxDamage: " + maxDamage.ToString();
+        str += "\n criticalMultiplier: " + criticalMultiplier.ToString();
+        str += "\n criticalChance: " + criticalChance.ToString();
+        return str;
+    }
 }
 
 public class SaveManager : Singleton<SaveManager>
@@ -126,6 +163,9 @@ public class SaveManager : Singleton<SaveManager>
     const string BASE_PLAYERINFO = "PlayersInfo";
 
     string sceneName = "Level";
+    //public  string playerFileName;
+    //public  string playerCharacter;
+    //public  string playerName;
 
     public string SceneName {
         get { return PlayerPrefs.GetString(sceneName); } 
@@ -148,13 +188,15 @@ public class SaveManager : Singleton<SaveManager>
     private void Update()
     {   //TODO: this hot key is just for testing. these should be in pause menu
         if (Input.GetKeyDown(KeyCode.F1)) {
-            SavePlayerDataPlayerPrefs();
-            //SavePlayerDataXML();
+            //SavePlayerDataPlayerPrefs();
+            SavePlayerProfileXML();
             Debug.Log("saved");
         }
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            LoadPlayerData();
+            //LoadPlayerData();
+            
+            SycPlayerData(LoadPlayerProfileXML(GameManager.Instance.playerStates.fileName));
             Debug.Log("Loaded");
         }
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -162,15 +204,22 @@ public class SaveManager : Singleton<SaveManager>
         }
     }
 
+
+
     public void SavePlayerDataPlayerPrefs() {
         Save(GameManager.Instance.playerStates.characterData, GameManager.Instance.playerStates.characterData.name);
     }
 
-    public void SavePlayerDataXML(CharacterProfile cp) {
+    public void SaveNewPlayerDataXML(CharacterProfile cp) {
 
-        PlayersProfile playersProfile = LoadPlayersInfo();
+        PlayersProfile playersProfile = LoadPlayersProfles();
 
         cp.fileName = playersProfile.GetNewPlayerName();
+
+        GameManager.Instance.playerStates.fileName = cp.fileName;
+        GameManager.Instance.playerStates.characterClass = cp.characterClass;
+        GameManager.Instance.playerStates.characterName = cp.name;
+
 
         GameManager.Instance.playerStates.characterData.currentHealth = cp.currentHealth;
         GameManager.Instance.playerStates.characterData.maxHealth = cp.maxHealth;
@@ -208,6 +257,37 @@ public class SaveManager : Singleton<SaveManager>
         playersProfile.AddedNewPlayerName();
         SavePlayersInfo(playersProfile);
         stream.Close();
+
+        //playerFileName = cp.fileName;
+    }
+
+    private void SaveFormatXML(CharacterProfile cp)
+    {
+        if (!Directory.Exists(DATA_PATH))
+        {
+            Directory.CreateDirectory(DATA_PATH);
+        }
+        string path = Path.Combine(DATA_PATH, cp.fileName);
+        Stream stream = File.Open(path, FileMode.Create);
+        XmlSerializer serializer = new XmlSerializer(typeof(CharacterProfile));
+        serializer.Serialize(stream, cp);
+
+        stream.Close();
+
+        //playerFileName = cp.fileName;
+    }
+
+    public CharacterProfile LoadPlayerProfileXML(string fileName) {
+        CharacterProfile cp = new CharacterProfile();
+        if (!Directory.Exists(DATA_PATH))
+        {
+            Directory.CreateDirectory(DATA_PATH);
+        }
+        Stream stream = File.Open(Path.Combine(DATA_PATH, fileName), FileMode.OpenOrCreate);
+        XmlSerializer serializer = new XmlSerializer(typeof(CharacterProfile));
+        cp = (CharacterProfile)serializer.Deserialize(stream);
+        stream.Close();
+        return cp;
     }
 
     public void LoadPlayerData()
@@ -228,7 +308,7 @@ public class SaveManager : Singleton<SaveManager>
         }
     }
 
-    public PlayersProfile LoadPlayersInfo() {
+    public PlayersProfile LoadPlayersProfles() {
 
         PlayersProfile playersProfile = new PlayersProfile();
 
@@ -260,5 +340,63 @@ public class SaveManager : Singleton<SaveManager>
         XmlSerializer serializer = new XmlSerializer(typeof(PlayersProfile));
         serializer.Serialize(stream, p);
         stream.Close();
+    }
+
+    private void SavePlayerProfileXML() {
+        CharacterProfile cp = new CharacterProfile();
+
+        //cp.fileName = playerFileName;
+        cp.fileName = GameManager.Instance.playerStates.fileName;
+        cp.characterClass = GameManager.Instance.playerStates.characterClass;
+        cp.name = GameManager.Instance.playerStates.characterName;
+
+        cp.currentHealth = GameManager.Instance.playerStates.characterData.currentHealth;
+        cp.maxHealth = GameManager.Instance.playerStates.characterData.maxHealth ;
+        cp.baseDefence = GameManager.Instance.playerStates.characterData.baseDefence;
+        cp.currentDefence = GameManager.Instance.playerStates.characterData.currentDefence;
+        cp.currentLevel = GameManager.Instance.playerStates.characterData.currentLevel;
+        cp.maxLevel = GameManager.Instance.playerStates.characterData.maxLevel;
+        cp.baseExp = GameManager.Instance.playerStates.characterData.baseExp;
+        cp.currentExp = GameManager.Instance.playerStates.characterData.currentExp;
+        cp.levelBuff = GameManager.Instance.playerStates.characterData.levelBuff;
+
+
+        cp.attackRange = GameManager.Instance.playerStates.attackData.attackRange;
+        cp.skillRange = GameManager.Instance.playerStates.attackData.skillRange;
+        cp.coolDown = GameManager.Instance.playerStates.attackData.coolDown;
+        cp.criticalMultiplier = GameManager.Instance.playerStates.attackData.criticalMultiplier;
+        cp.criticalChance = GameManager.Instance.playerStates.attackData.criticalChance;
+        cp.minDamage = GameManager.Instance.playerStates.attackData.minDamage;
+        cp.maxDamage = GameManager.Instance.playerStates.attackData.maxDamage;
+
+
+        SaveFormatXML(cp);
+    }
+
+    private void SycPlayerData(CharacterProfile cp)
+    {
+        GameManager.Instance.playerStates.fileName = cp.fileName;
+        GameManager.Instance.playerStates.characterClass = cp.characterClass;
+        GameManager.Instance.playerStates.characterName = cp.name;
+
+
+        GameManager.Instance.playerStates.characterData.currentHealth = cp.currentHealth;
+        GameManager.Instance.playerStates.characterData.maxHealth = cp.maxHealth;
+        GameManager.Instance.playerStates.characterData.baseDefence = cp.baseDefence;
+        GameManager.Instance.playerStates.characterData.currentDefence = cp.currentDefence;
+        GameManager.Instance.playerStates.characterData.currentLevel = cp.currentLevel;
+        GameManager.Instance.playerStates.characterData.maxLevel = cp.maxLevel;
+        GameManager.Instance.playerStates.characterData.baseExp = cp.baseExp;
+        GameManager.Instance.playerStates.characterData.currentExp = cp.currentExp;
+        GameManager.Instance.playerStates.characterData.levelBuff = cp.levelBuff;
+
+
+        GameManager.Instance.playerStates.attackData.attackRange = cp.attackRange;
+        GameManager.Instance.playerStates.attackData.skillRange = cp.skillRange;
+        GameManager.Instance.playerStates.attackData.coolDown = cp.coolDown;
+        GameManager.Instance.playerStates.attackData.criticalMultiplier = cp.criticalMultiplier;
+        GameManager.Instance.playerStates.attackData.criticalChance = cp.criticalChance;
+        GameManager.Instance.playerStates.attackData.minDamage = cp.minDamage;
+        GameManager.Instance.playerStates.attackData.maxDamage = cp.maxDamage;
     }
 }

@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        SaveManager.Instance.LoadPlayerData();
+        //SaveManager.Instance.LoadPlayerData();
     }
 
     private void OnDisable()

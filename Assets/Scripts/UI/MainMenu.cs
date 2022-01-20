@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     public GameObject knightChracterBoard;
     public GameObject wizardChracterBoard;
 
+    public GameObject continueGameUI;
+
     private void Awake()
     {
         newGameBtn = transform.GetChild(1).GetComponent<Button>();
@@ -52,7 +54,8 @@ public class MainMenu : MonoBehaviour
 
     void ContinueGame() {
         //switch scene and load data
-        SceneController.Instance.TransitionToLoadGame();
+        //SceneController.Instance.TransitionToLoadGame();
+        continueGameUI.SetActive(true);
     }
 
     public void DisplayKnightCharacterBoard() {

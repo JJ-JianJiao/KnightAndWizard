@@ -13,6 +13,11 @@ public class CharacterStats : MonoBehaviour
 
     [HideInInspector]
     public bool isCritical;
+
+    public string fileName;
+    public string characterClass;
+    public string characterName;
+
     private void Awake()
     {
         if (templateData != null) {
