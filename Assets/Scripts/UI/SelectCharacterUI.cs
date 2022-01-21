@@ -38,11 +38,15 @@ public class SelectCharacterUI : MonoBehaviour
     public Button intellectLeftBtn;
     public Button intellectRightBtn;
 
+    public Button maxProfileAlertBtn;
+
     [Header("Two Characters")]
     public GameObject wizardCharacter;
     public GameObject knightCharacter;
 
     private CanvasGroup canvasGroup;
+
+
 
     //public PlayableDirector knightStartGameDirector;
     //public PlayableDirector wizardStartGameDirector;
@@ -73,6 +77,12 @@ public class SelectCharacterUI : MonoBehaviour
         //wizardStartGameDirector.stopped += StartNewGame;
     }
 
+    private void OnEnable()
+    {
+        if (SaveManager.Instance.LoadPlayersProfles().Length >= 6) {
+            maxProfileAlertBtn.gameObject.SetActive(true);
+        }
+    }
 
     private void OnDisable()
     {
@@ -223,6 +233,7 @@ public class SelectCharacterUI : MonoBehaviour
             intellectText.text = "0";
         totalPoints = 9;
         currentPointText.text = "9";
+        maxProfileAlertBtn.gameObject.SetActive(false);
     }
 
 

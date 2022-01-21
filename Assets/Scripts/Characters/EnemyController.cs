@@ -105,8 +105,12 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
     void SwitchStates() {
 
         if (isDead)
+        {
             enemyStates = EnemyStates.DEAD;
-        else if (FoundPlayer()) {        //If find player, switch to CHASE
+            GetComponent<Collider>().enabled = false;
+        }
+        else if (FoundPlayer())
+        {        //If find player, switch to CHASE
             enemyStates = EnemyStates.CHASE;
         }
 

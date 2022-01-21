@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player11</fileName>
+  <fileName>Player13</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>Dungeons01</sceneName>
-  <name>Gg</name>
+  <name>Hh</name>
   <maxHealth>100</maxHealth>
   <currentHealth>100</currentHealth>
   <baseDefence>2</baseDefence>
@@ -20,8 +20,8 @@
   <criticalChance>0.2</criticalChance>
   <minDamage>4</minDamage>
   <maxDamage>6</maxDamage>
-  <stamina>3</stamina>
-  <strength>3</strength>
-  <agility>3</agility>
+  <stamina>0</stamina>
+  <strength>5</strength>
+  <agility>4</agility>
   <intellect>0</intellect>
 </CharacterProfile>

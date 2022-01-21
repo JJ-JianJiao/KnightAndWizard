@@ -255,7 +255,9 @@ public class SaveManager : Singleton<SaveManager>
         XmlSerializer serializer = new XmlSerializer(typeof(CharacterProfile));
         serializer.Serialize(stream, cp);
         playersProfile.AddedNewPlayerName();
+
         SavePlayersInfo(playersProfile);
+
         stream.Close();
 
         //playerFileName = cp.fileName;
@@ -332,6 +334,9 @@ public class SaveManager : Singleton<SaveManager>
     }
 
     public void SavePlayersInfo(PlayersProfile p) {
+
+        p =  RemoveEarlierProfile(p);
+
         if (!Directory.Exists(DATA_PATH))
         {
             Directory.CreateDirectory(DATA_PATH);
@@ -341,6 +346,7 @@ public class SaveManager : Singleton<SaveManager>
         serializer.Serialize(stream, p);
         stream.Close();
     }
+
 
     private void SavePlayerProfileXML() {
         CharacterProfile cp = new CharacterProfile();
@@ -411,8 +417,26 @@ public class SaveManager : Singleton<SaveManager>
 
         PlayersProfile playersProfile = LoadPlayersProfles();
         playersProfile.playerFileNameList.Remove(deleteFileName);
+
         SavePlayersInfo(playersProfile);
 
         return true;
+    }
+
+
+    private PlayersProfile RemoveEarlierProfile(PlayersProfile p)
+    {
+        if (p.Length <= 6) return p;
+
+
+        for (int i = 0; i <= p.Length-6; i++)
+        {
+            if (DeleteSelectedPlayerProfile(p.playerFileNameList[i])) {
+                p.playerFileNameList.RemoveAt(i);
+            }
+            
+        }
+        return p;
+
     }
 }
