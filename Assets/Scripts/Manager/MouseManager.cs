@@ -19,6 +19,7 @@ public class MouseManager : Singleton<MouseManager>
     private GameObject mainWizard;
     private MainMenu mainMenu;
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -96,6 +97,9 @@ public class MouseManager : Singleton<MouseManager>
 
             if (hitInfo.collider.gameObject.CompareTag("MainDogKnight")) {
                 //mainDogKnight.SetActive(true);
+
+                mainDogKnight.GetComponent<Animator>().SetTrigger("ShowOff");
+
                 hitInfo.collider.transform.GetChild(3).gameObject.SetActive(true);
                 mainWizard.transform.GetChild(2).gameObject.SetActive(false);
                 mainWizard.GetComponent<Collider>().enabled = false;
@@ -105,6 +109,9 @@ public class MouseManager : Singleton<MouseManager>
             if (hitInfo.collider.gameObject.CompareTag("MaintWizard"))
             {
                 //mainWizard.SetActive(true);
+                mainWizard.GetComponent<Animator>().SetTrigger("ShowOff");
+
+
                 hitInfo.collider.transform.GetChild(2).gameObject.SetActive(true);
                 mainDogKnight.transform.GetChild(3).gameObject.SetActive(false);
                 //mainDogKnight.SetActive(false);

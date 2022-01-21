@@ -21,7 +21,11 @@ public class PlayerHealthUI : MonoBehaviour
 
     private void Update()
     {
-        levelText.text = "Level " + GameManager.Instance.playerStates.characterData.currentLevel.ToString("00");
+        string name = GameManager.Instance.playerStates.characterName;
+        if(name != null)
+            levelText.text = name +  " - Level " + GameManager.Instance.playerStates.characterData.currentLevel.ToString("00");
+        else
+            levelText.text = "Level " + GameManager.Instance.playerStates.characterData.currentLevel.ToString("00");
         healthDetail.text = GameManager.Instance.playerStates.CurrentHealth.ToString("000") + "/" + GameManager.Instance.playerStates.MaxHealth.ToString("000");
         UpdateHealt();
         ExpUpdate();

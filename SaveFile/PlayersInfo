@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PlayersProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <newPlayerNumbers>16</newPlayerNumbers>
+  <newPlayerNumbers>17</newPlayerNumbers>
   <playerFileNameList>
     <string>Player9</string>
     <string>Player10</string>

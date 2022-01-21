@@ -74,6 +74,8 @@ public class SelectCharacterUI : MonoBehaviour
         startBtn.onClick.AddListener(PlayNewGameTimeline);
 
         startGameDirector.stopped += StartNewGame;
+
+        maxProfileAlertBtn.gameObject.SetActive(false);
         //wizardStartGameDirector.stopped += StartNewGame;
     }
 

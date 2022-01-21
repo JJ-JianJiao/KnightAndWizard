@@ -45,7 +45,9 @@ public class HealthBarUI : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            UIbar.gameObject.SetActive(true);
+            //TODO: need to fix here, dont know reason
+            if(UIbar != null) UIbar.gameObject.SetActive(true);
+
             timeLeft = visibleTime;
             healthSlider.fillAmount = 0;
             Destroy(UIbar.gameObject, 0.5f);
