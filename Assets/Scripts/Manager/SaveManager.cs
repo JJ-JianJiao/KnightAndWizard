@@ -399,4 +399,20 @@ public class SaveManager : Singleton<SaveManager>
         GameManager.Instance.playerStates.attackData.minDamage = cp.minDamage;
         GameManager.Instance.playerStates.attackData.maxDamage = cp.maxDamage;
     }
+
+    public bool DeleteSelectedPlayerProfile(string deleteFileName)
+    {
+        if (Directory.Exists(DATA_PATH)) {
+            string filePath = Path.Combine(DATA_PATH, deleteFileName);
+            if (File.Exists(Path.Combine(filePath))) {
+                File.Delete(filePath);
+            }
+        }
+
+        PlayersProfile playersProfile = LoadPlayersProfles();
+        playersProfile.playerFileNameList.Remove(deleteFileName);
+        SavePlayersInfo(playersProfile);
+
+        return true;
+    }
 }

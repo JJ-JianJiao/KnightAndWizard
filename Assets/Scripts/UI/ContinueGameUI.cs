@@ -33,6 +33,7 @@ public class ContinueGameUI : MonoBehaviour
         {
             GameObject.Destroy(item);
         }
+        playerProfiles.Clear();
     }
 
     //private void Start()
@@ -62,4 +63,18 @@ public class ContinueGameUI : MonoBehaviour
         }
     }
 
+    public void RefreshBoard() {
+        foreach (var item in playerProfiles)
+        {
+            GameObject.Destroy(item);
+        }
+        playerProfiles.Clear();
+
+        PlayersProfile playersProfile = SaveManager.Instance.LoadPlayersProfles();
+
+        if (playersProfile.Length > 0)
+        {
+            CreatePlayersProfileUIs(playersProfile);
+        }
+    }
 }

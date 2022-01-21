@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player1</fileName>
+  <fileName>Player11</fileName>
   <characterClass>Wizard</characterClass>
-  <name>Hah</name>
+  <sceneName>Dungeons01</sceneName>
+  <name>Rrr</name>
   <maxHealth>100</maxHealth>
-  <currentHealth>92</currentHealth>
+  <currentHealth>100</currentHealth>
   <baseDefence>2</baseDefence>
   <currentDefence>2</currentDefence>
   <currentLevel>1</currentLevel>
@@ -19,8 +20,8 @@
   <criticalChance>0.2</criticalChance>
   <minDamage>4</minDamage>
   <maxDamage>6</maxDamage>
-  <stamina>0</stamina>
-  <strength>0</strength>
+  <stamina>3</stamina>
+  <strength>2</strength>
   <agility>0</agility>
-  <intellect>0</intellect>
+  <intellect>4</intellect>
 </CharacterProfile>

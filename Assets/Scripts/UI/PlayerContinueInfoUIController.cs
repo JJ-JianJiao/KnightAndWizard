@@ -17,15 +17,25 @@ public class PlayerContinueInfoUIController : MonoBehaviour
 
     CharacterProfile characterProfile;
 
+    public GameObject deleteAlrtPanel;
+    public GameObject parentPanel;
+
     private void Awake()
     {
         startContinueBtn.onClick.AddListener(ContinueGame);
         deletePlayerProfileBtn.onClick.AddListener(DeleteProfile);
+
+        deleteAlrtPanel = transform.root.GetChild(1).gameObject;
+        parentPanel = transform.root.GetChild(0).gameObject;
     }
 
     private void DeleteProfile()
     {
         Debug.Log(boardIndex.text + "Show a delete alert window");
+        parentPanel.GetComponent<CanvasGroup>().interactable = false;
+        deleteAlrtPanel.SetActive(true);
+        deleteAlrtPanel.GetComponent<DeleteAlertPanelUI>().deleteFileName = characterProfile.fileName;
+        deleteAlrtPanel.GetComponent<DeleteAlertPanelUI>().deleteObject = this.gameObject;
     }
 
     private void ContinueGame()
