@@ -18,7 +18,10 @@ MonoBehaviour:
   itemAmount: 1
   description: This is the legend shield!
   stackable: 0
-  weaponPrefab: {fileID: 816668244807479946, guid: 99a406555a71c564da5d9eec0a563f5d, type: 3}
-  weaponData: {fileID: 11400000, guid: ab037ac2f3bdf414089557de90932bca, type: 2}
-  weaponAnimator: {fileID: 22100000, guid: 256836656e9891344a4be91b960a8b09, type: 2}
+  weaponPrefab: {fileID: 0}
+  weaponData: {fileID: 0}
+  weaponAnimator: {fileID: 0}
+  ShieldPrefab: {fileID: 816668244807479946, guid: 99a406555a71c564da5d9eec0a563f5d, type: 3}
+  shieldData: {fileID: 11400000, guid: f3e0ffcabb2dc9341aa77a2d70a198ac, type: 2}
+  shieldAnimator: {fileID: 22100000, guid: 256836656e9891344a4be91b960a8b09, type: 2}
   useableItemData: {fileID: 0}

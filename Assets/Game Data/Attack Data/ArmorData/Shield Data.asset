@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee7025a8b4de244590eb8f6c6cf2975, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c86293f164ad70418e96a9ed6e83595, type: 3}
   m_Name: Shield Data
   m_EditorClassIdentifier: 
-  attackRange: 0
-  skillRange: 0
-  coolDown: 0
-  minDamage: 0
-  maxDamage: 0
-  criticalMultiplier: 0
-  criticalChance: 0
+  defence: 20

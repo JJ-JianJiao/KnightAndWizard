@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player1</fileName>
+  <fileName>Player7</fileName>
   <characterClass>Knight</characterClass>
-  <sceneName>Dungeons01</sceneName>
-  <positionX>-10.0914726</positionX>
-  <positionY>0.230995283</positionY>
-  <positionZ>-3.48732829</positionZ>
-  <rotationX>-0</rotationX>
-  <rotationY>20.4535275</rotationY>
+  <sceneName>MainLand</sceneName>
+  <positionX>37.9470329</positionX>
+  <positionY>0.0333344936</positionY>
+  <positionZ>11.3579845</positionZ>
+  <rotationX>0</rotationX>
+  <rotationY>202.363861</rotationY>
   <rotationZ>0</rotationZ>
-  <name>Yhhhh</name>
-  <maxHealth>171</maxHealth>
-  <currentHealth>171</currentHealth>
+  <name>Czczcz</name>
+  <maxHealth>100</maxHealth>
+  <currentHealth>100</currentHealth>
   <baseDefence>2</baseDefence>
-  <currentDefence>2</currentDefence>
-  <currentLevel>4</currentLevel>
+  <currentDefence>22</currentDefence>
+  <currentLevel>1</currentLevel>
   <maxLevel>30</maxLevel>
-  <baseExp>531</baseExp>
-  <currentExp>250</currentExp>
+  <baseExp>50</baseExp>
+  <currentExp>0</currentExp>
   <levelBuff>0.1</levelBuff>
   <attackRange>1.8</attackRange>
   <skillRange>0</skillRange>

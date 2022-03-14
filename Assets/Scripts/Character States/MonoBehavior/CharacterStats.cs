@@ -10,6 +10,7 @@ public class CharacterStats : MonoBehaviour
     public CharacterData_SO templateData;
     public CharacterData_SO characterData;
     public AttackData_SO attackData;
+    public DefenceData_SO defenceData;
     private AttackData_SO baseAttackData;
     private RuntimeAnimatorController baseAniamtor;
 
@@ -23,6 +24,7 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Weapon")]
     public Transform weaponSlot;
+    public Transform rightWeaponSlot;
 
     private bool getExp;
 
@@ -86,6 +88,7 @@ public class CharacterStats : MonoBehaviour
         get { if (attackData != null) return attackData.criticalMultiplier; else return 0; }
         set { attackData.criticalMultiplier = value; }
     }
+
 
     public float CriticalChance
     {
@@ -171,6 +174,13 @@ public class CharacterStats : MonoBehaviour
         //InventoryManager.Instance.UpdateStatsText(CurrentHealth, attackData.minDamage, attackData.maxDamage);
     }
 
+
+    internal void ChangeRightWeapon(ItemData_SO rightWeapon)
+    {
+        UnEquipRightWeapon();
+        EquipRightWeapon(rightWeapon);
+    }
+
     public void EquipWeapon(ItemData_SO weapon) {
         if (weapon.weaponPrefab != null) {
             var w = Instantiate(weapon.weaponPrefab, weaponSlot);
@@ -183,6 +193,26 @@ public class CharacterStats : MonoBehaviour
         //attackData.ApplyWeaponData(weapon.weaponData, 0);
         attackData.ApplyWeaponData(weapon.weaponData);
         GetComponent<Animator>().runtimeAnimatorController = weapon.weaponAnimator;
+        //InventoryManager.Instance.UpdateStatsText(CurrentHealth, attackData.minDamage, attackData.maxDamage);
+    }
+
+    public void EquipRightWeapon(ItemData_SO weapon)
+    {
+        if (weapon.ShieldPrefab != null)
+        {
+            var w = Instantiate(weapon.ShieldPrefab, rightWeaponSlot);
+            if (w.gameObject.layer != LayerMask.NameToLayer("Player"))
+                w.gameObject.layer = LayerMask.NameToLayer("Player");
+        }
+
+        //TODO: update attribute 
+        //TODO:Switch animation
+        //attackData.ApplyWeaponData(weapon.weaponData, 0);
+        //attackData.ApplyWeaponData(weapon.weaponData);
+        CurrentDefence += weapon.shieldData.defence;
+
+
+        GetComponent<Animator>().runtimeAnimatorController = weapon.shieldAnimator;
         //InventoryManager.Instance.UpdateStatsText(CurrentHealth, attackData.minDamage, attackData.maxDamage);
     }
 
@@ -199,7 +229,33 @@ public class CharacterStats : MonoBehaviour
 
         attackData.ApplyWeaponData(baseAttackData);
         //TODO:Switch animation
-        GetComponent<Animator>().runtimeAnimatorController = baseAniamtor;
+        if (rightWeaponSlot.childCount == 0)
+        {
+            GetComponent<Animator>().runtimeAnimatorController = baseAniamtor;
+            attackData.ApplyWeaponData(baseAttackData);
+        }
+    }
+
+    public void UnEquipRightWeapon()
+    {
+
+        if (rightWeaponSlot.transform.childCount != 0)
+        {
+            for (int i = 0; i < rightWeaponSlot.transform.childCount; i++)
+            {
+                Destroy(rightWeaponSlot.transform.GetChild(i).gameObject);
+            }
+
+        }
+
+        //attackData.ApplyWeaponData(baseAttackData);
+        CurrentDefence = BaseDefence;
+        //TODO:Switch animation
+        if (weaponSlot.childCount == 0)
+        {
+            GetComponent<Animator>().runtimeAnimatorController = baseAniamtor;
+            attackData.ApplyWeaponData(baseAttackData);
+        }
     }
     #endregion
 

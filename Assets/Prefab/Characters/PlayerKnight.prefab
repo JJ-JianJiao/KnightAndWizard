@@ -663,6 +663,7 @@ MonoBehaviour:
   characterClass: 
   characterName: 
   weaponSlot: {fileID: 2198958884519569906}
+  rightWeaponSlot: {fileID: 2198958884519569436}
 --- !u!1 &2198958884519801892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,7 +2387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2198958884519569436
 Transform:
   m_ObjectHideFlags: 0
@@ -2563,6 +2564,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b20cb9cb9197fb64a830cea6c0550d0e, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b20cb9cb9197fb64a830cea6c0550d0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b20cb9cb9197fb64a830cea6c0550d0e, type: 3}
       propertyPath: m_RootOrder

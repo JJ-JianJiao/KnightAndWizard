@@ -2,24 +2,6 @@
     "items": [
         {
             "itemData": {
-                "instanceID": 34134
-            },
-            "amount": 13
-        },
-        {
-            "itemData": {
-                "instanceID": 34132
-            },
-            "amount": 1
-        },
-        {
-            "itemData": {
-                "instanceID": 34138
-            },
-            "amount": 1
-        },
-        {
-            "itemData": {
                 "instanceID": 0
             },
             "amount": 0
@@ -64,7 +46,25 @@
             "itemData": {
                 "instanceID": 0
             },
-            "amount": 1
+            "amount": 0
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "amount": 0
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "amount": 0
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "amount": 0
         },
         {
             "itemData": {

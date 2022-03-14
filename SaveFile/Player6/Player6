@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player2</fileName>
+  <fileName>Player6</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>InnTown</sceneName>
   <positionX>-1</positionX>
@@ -9,7 +9,7 @@
   <rotationX>-1</rotationX>
   <rotationY>-1</rotationY>
   <rotationZ>-1</rotationZ>
-  <name>Hhh</name>
+  <name>Wwww</name>
   <maxHealth>100</maxHealth>
   <currentHealth>100</currentHealth>
   <baseDefence>2</baseDefence>
@@ -26,8 +26,8 @@
   <criticalChance>0.2</criticalChance>
   <minDamage>4</minDamage>
   <maxDamage>6</maxDamage>
-  <stamina>3</stamina>
-  <strength>0</strength>
-  <agility>6</agility>
+  <stamina>0</stamina>
+  <strength>9</strength>
+  <agility>0</agility>
   <intellect>0</intellect>
 </CharacterProfile>

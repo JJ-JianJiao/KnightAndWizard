@@ -21,6 +21,12 @@ public class ItemData_SO : ScriptableObject
     public AnimatorOverrideController weaponAnimator;
 
 
+    [Header("Shield")]
+    public GameObject ShieldPrefab;
+    public DefenceData_SO shieldData;
+    public AnimatorOverrideController shieldAnimator;
+
+
     [Header("Usable Item")]
 
     public UseableItemData_SO useableItemData;

@@ -54,7 +54,7 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler,IPointerEnterHandl
                 {
                     if(itemUI.Index == 0)
                         GameManager.Instance.playerStates.ChangeWeapon(itemUI.Bag.items[itemUI.Index].itemData);
-                }
+                }   
                 else {
                     if (itemUI.Index == 0)
                         GameManager.Instance.playerStates.UnEquipWeapon();
@@ -62,6 +62,16 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler,IPointerEnterHandl
                 break;
             case SlotType.ARMOR:
                 itemUI.Bag = InventoryManager.Instance.equipmentData;
+                if (itemUI.Bag.items[itemUI.Index].itemData != null)
+                {
+                    if (itemUI.Index == 1)
+                        GameManager.Instance.playerStates.ChangeRightWeapon(itemUI.Bag.items[itemUI.Index].itemData);
+                }
+                else
+                {
+                    if (itemUI.Index == 1)
+                        GameManager.Instance.playerStates.UnEquipRightWeapon();
+                }
                 break;
             case SlotType.ACTION:
                 itemUI.Bag = InventoryManager.Instance.actionData;
