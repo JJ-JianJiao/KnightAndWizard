@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChestContainer : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ChestContainer : MonoBehaviour
     public GameObject currentChestUI;
 
     public Button closeCurrentChestBtn;
+
+    public TMP_Text title;
 
     private void Awake()
     {
@@ -45,8 +48,28 @@ public class ChestContainer : MonoBehaviour
         currentChestUI.transform.SetSiblingIndex(++InventoryManager.Instance.dragSiblingIndex);
         closeCurrentChestBtn = currentChestUI.transform.GetChild(1).GetComponent<Button>();
         closeCurrentChestBtn.onClick.AddListener(CloseChestContainer);
-        InventoryManager.Instance.chestContainer01UI = currentChestUI.transform.GetChild(2).GetComponent<ContainerUI>();
-        InventoryManager.Instance.chestContainer01UI.RefreshUI();
+
+        title = currentChestUI.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
+
+        if (name.Contains("ChestContainer1")) {
+            title.text = "Chest 01";
+            InventoryManager.Instance.chestContainer01UI = currentChestUI.transform.GetChild(2).GetComponent<ContainerUI>();
+            InventoryManager.Instance.chestContainer01UI.RefreshUI(SlotType.CONTAINER01);
+        }
+        else if (name.Contains("ChestContainer2")) {
+            title.text = "Chest 02";
+            InventoryManager.Instance.chestContainer02UI = currentChestUI.transform.GetChild(2).GetComponent<ContainerUI>();
+            InventoryManager.Instance.chestContainer02UI.RefreshUI(SlotType.CONTAINER02);
+        }
+        else if (name.Contains("ChestContainer3"))
+        {
+            title.text = "Chest 03";
+            InventoryManager.Instance.chestContainer03UI = currentChestUI.transform.GetChild(2).GetComponent<ContainerUI>();
+            InventoryManager.Instance.chestContainer03UI.RefreshUI(SlotType.CONTAINER03);
+        }
+
+        //InventoryManager.Instance.chestContainer01UI = currentChestUI.transform.GetChild(2).GetComponent<ContainerUI>();
+        //InventoryManager.Instance.chestContainer01UI.RefreshUI();
     }
 
     void CloseChestContainer() {

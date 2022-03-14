@@ -28,7 +28,15 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public InventoryData_SO ChestContainer01Template;
 
-    public InventoryData_SO ChestContainer01;
+    public InventoryData_SO ChestContainer01Data;
+
+    public InventoryData_SO ChestContainer02Template;
+
+    public InventoryData_SO ChestContainer02Data;
+
+    public InventoryData_SO ChestContainer03Template;
+
+    public InventoryData_SO ChestContainer03Data;
 
 
 
@@ -38,6 +46,8 @@ public class InventoryManager : Singleton<InventoryManager>
     public ContainerUI equipmentUI;
 
     public ContainerUI chestContainer01UI;
+    public ContainerUI chestContainer02UI;
+    public ContainerUI chestContainer03UI;
 
     [Header("Drag Canvas")]
     public Canvas dragCanvas;
@@ -77,7 +87,16 @@ public class InventoryManager : Singleton<InventoryManager>
         }
         if (ChestContainer01Template != null)
         {
-            ChestContainer01 = Instantiate(ChestContainer01Template);
+            ChestContainer01Data = Instantiate(ChestContainer01Template);
+        }
+        if (ChestContainer02Template != null)
+        {
+            ChestContainer02Data = Instantiate(ChestContainer02Template);
+        }
+
+        if (ChestContainer03Template != null)
+        {
+            ChestContainer03Data = Instantiate(ChestContainer03Template);
         }
 
     }
@@ -155,6 +174,40 @@ public class InventoryManager : Singleton<InventoryManager>
         else return false;
     }
 
+    public bool CheckChestContainer02UI(Vector3 position)
+    {
+        if (chestContainer02UI)
+        {
+            for (int i = 0; i < chestContainer02UI.slotHolders.Length; i++)
+            {
+                RectTransform t = chestContainer02UI.slotHolders[i].transform as RectTransform;
+                if (RectTransformUtility.RectangleContainsScreenPoint(t, position))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else return false;
+    }
+
+    public bool CheckChestContainer03UI(Vector3 position)
+    {
+        if (chestContainer03UI)
+        {
+            for (int i = 0; i < chestContainer03UI.slotHolders.Length; i++)
+            {
+                RectTransform t = chestContainer03UI.slotHolders[i].transform as RectTransform;
+                if (RectTransformUtility.RectangleContainsScreenPoint(t, position))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else return false;
+    }
+
     public bool CheckActionUI(Vector3 position)
     {
         for (int i = 0; i < actionUI.slotHolders.Length; i++)
@@ -194,6 +247,9 @@ public class InventoryManager : Singleton<InventoryManager>
         SaveManager.Instance.SavePlayerInventoryFileToXML(inventoryData, inventoryData.name);
         SaveManager.Instance.SavePlayerInventoryFileToXML(actionData, actionData.name);
         SaveManager.Instance.SavePlayerInventoryFileToXML(equipmentData, equipmentData.name);
+        SaveManager.Instance.SavePlayerInventoryFileToXML(ChestContainer01Data, ChestContainer01Data.name);
+        SaveManager.Instance.SavePlayerInventoryFileToXML(ChestContainer02Data, ChestContainer02Data.name);
+        SaveManager.Instance.SavePlayerInventoryFileToXML(ChestContainer03Data, ChestContainer03Data.name);
 
     }
 
@@ -201,10 +257,14 @@ public class InventoryManager : Singleton<InventoryManager>
         SaveManager.Instance.LoadPlayerInventoryFileToXML(inventoryData, inventoryData.name);
         SaveManager.Instance.LoadPlayerInventoryFileToXML(actionData, actionData.name);
         SaveManager.Instance.LoadPlayerInventoryFileToXML(equipmentData, equipmentData.name);
+        SaveManager.Instance.LoadPlayerInventoryFileToXML(ChestContainer01Data, ChestContainer01Data.name);
+        SaveManager.Instance.LoadPlayerInventoryFileToXML(ChestContainer02Data, ChestContainer02Data.name);
+        SaveManager.Instance.LoadPlayerInventoryFileToXML(ChestContainer03Data, ChestContainer03Data.name);
 
         inventoryUI.RefreshUI();
         actionUI.RefreshUI();
         equipmentUI.RefreshUI();
+
     }
 
     #endregion

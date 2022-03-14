@@ -535,6 +535,18 @@ public class SaveManager : Singleton<SaveManager>
         {
             _name = fileName + "Equipment";
         }
+        else if (name.Contains("ChestContainer01"))
+        {
+            _name = fileName + "ChestContainer01";
+        }
+        else if (name.Contains("ChestContainer02"))
+        {
+            _name = fileName + "ChestContainer02";
+        }
+        else if (name.Contains("ChestContainer03"))
+        {
+            _name = fileName + "ChestContainer03";
+        }
 
 
         string fullPath = Path.Combine(currentPath, _name);
@@ -575,7 +587,18 @@ public class SaveManager : Singleton<SaveManager>
         {
             _name = fileName + "Equipment";
         }
-
+        else if (name.Contains("ChestContainer01"))
+        {
+            _name = fileName + "ChestContainer01";
+        }
+        else if (name.Contains("ChestContainer02"))
+        {
+            _name = fileName + "ChestContainer02";
+        }
+        else if (name.Contains("ChestContainer03"))
+        {
+            _name = fileName + "ChestContainer03";
+        }
 
         string fullPath = Path.Combine(currentPath, _name);
 

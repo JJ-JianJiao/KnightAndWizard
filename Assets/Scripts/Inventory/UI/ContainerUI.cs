@@ -13,4 +13,15 @@ public class ContainerUI : MonoBehaviour
             slotHolders[i].UpdateItem();
         }
     }
+
+    public void RefreshUI(SlotType slotType)
+    {
+        for (int i = 0; i < slotHolders.Length; i++)
+        {
+            slotHolders[i].slotType = slotType;
+
+            slotHolders[i].itemUI.Index = i;
+            slotHolders[i].UpdateItem();
+        }
+    }
 }

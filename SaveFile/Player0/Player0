@@ -3,12 +3,12 @@
   <fileName>Player0</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>InnTown</sceneName>
-  <positionX>43.49868</positionX>
-  <positionY>0.0833296254</positionY>
-  <positionZ>8.547765</positionZ>
-  <rotationX>-0</rotationX>
-  <rotationY>143.851563</rotationY>
-  <rotationZ>-0</rotationZ>
+  <positionX>28.14146</positionX>
+  <positionY>0.0833297148</positionY>
+  <positionZ>10.7648964</positionZ>
+  <rotationX>0</rotationX>
+  <rotationY>304.26474</rotationY>
+  <rotationZ>0</rotationZ>
   <name>Aada</name>
   <maxHealth>171</maxHealth>
   <currentHealth>169</currentHealth>
