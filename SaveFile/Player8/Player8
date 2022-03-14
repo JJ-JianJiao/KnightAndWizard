@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player5</fileName>
+  <fileName>Player8</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>InnTown</sceneName>
-  <positionX>11.0207148</positionX>
-  <positionY>0.083330065</positionY>
-  <positionZ>19.9440765</positionZ>
+  <positionX>9.72327</positionX>
+  <positionY>0.08332968</positionY>
+  <positionZ>21.3643589</positionZ>
   <rotationX>-0</rotationX>
-  <rotationY>53.50891</rotationY>
+  <rotationY>28.9819927</rotationY>
   <rotationZ>0</rotationZ>
-  <name>Aaa</name>
+  <name>Qeq</name>
   <maxHealth>100</maxHealth>
   <currentHealth>100</currentHealth>
   <baseDefence>2</baseDefence>
@@ -19,13 +19,13 @@
   <baseExp>50</baseExp>
   <currentExp>0</currentExp>
   <levelBuff>0.1</levelBuff>
-  <attackRange>1.8</attackRange>
+  <attackRange>2.2</attackRange>
   <skillRange>0</skillRange>
-  <coolDown>1</coolDown>
+  <coolDown>0.7</coolDown>
   <criticalMultiplier>2</criticalMultiplier>
   <criticalChance>0.2</criticalChance>
-  <minDamage>21</minDamage>
-  <maxDamage>23</maxDamage>
+  <minDamage>4</minDamage>
+  <maxDamage>6</maxDamage>
   <stamina>0</stamina>
   <strength>0</strength>
   <agility>0</agility>

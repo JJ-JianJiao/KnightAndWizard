@@ -118,12 +118,14 @@ public class InventoryManager : Singleton<InventoryManager>
         if (Input.GetKeyDown(KeyCode.B)) {
             isBagOpen = !isBagOpen;
             bagPanel.SetActive(isBagOpen);
+            bagPanel.transform.SetSiblingIndex(dragSiblingIndex);
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
             isStatsOpen = !isStatsOpen;
             statsPanel.SetActive(isStatsOpen);
+            statsPanel.transform.SetSiblingIndex(dragSiblingIndex);
         }
 
         UpdateStatsText(GameManager.Instance.playerStates.MaxHealth, GameManager.Instance.playerStates.attackData.minDamage,
