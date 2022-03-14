@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <PlayersProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <newPlayerNumbers>17</newPlayerNumbers>
+  <newPlayerNumbers>3</newPlayerNumbers>
   <playerFileNameList>
-    <string>Player9</string>
-    <string>Player10</string>
-    <string>Player11</string>
-    <string>Player13</string>
-    <string>Player14</string>
+    <string>Player0</string>
+    <string>Player1</string>
+    <string>Player2</string>
   </playerFileNameList>
 </PlayersProfile>

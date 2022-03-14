@@ -101,12 +101,12 @@
             {
                 "type": "UnityEditor.Polybrush.PrefabLoadout, Unity.Polybrush.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ScatteringEditor.userLoadout",
-                "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"407e5f361ce9d51449e1c2ed1f8f2cef\",\"type\":2},\"prefab\":{\"fileID\":4385080170328260021,\"guid\":\"ff62b58c5a9ea164fa8ddf8038e10cd1\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"407e5f361ce9d51449e1c2ed1f8f2cef\",\"type\":2},\"prefab\":{\"fileID\":5440707293445505367,\"guid\":\"494f6d43e170e9145bc7865d243ee00b\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"407e5f361ce9d51449e1c2ed1f8f2cef\",\"type\":2},\"prefab\":{\"fileID\":8903058273634794869,\"guid\":\"f1fc5bb90ac285e4486771552d63bcb8\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"407e5f361ce9d51449e1c2ed1f8f2cef\",\"type\":2},\"prefab\":{\"fileID\":3356751432538110193,\"guid\":\"ffbddc4ef9676cc419e81e06aaa836d8\",\"type\":3}}]}}"
+                "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"407e5f361ce9d51449e1c2ed1f8f2cef\",\"type\":2},\"prefab\":{\"fileID\":2222111361404534124,\"guid\":\"88f2fd29f58b9734683512546acec310\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"407e5f361ce9d51449e1c2ed1f8f2cef\",\"type\":2},\"prefab\":{\"fileID\":4661435515762455780,\"guid\":\"e289bf5debb17f6459818c207d781953\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"407e5f361ce9d51449e1c2ed1f8f2cef\",\"type\":2},\"prefab\":{\"fileID\":6941765000743290380,\"guid\":\"c60edd51c065ceb46b345849a03bc106\",\"type\":3}}]}}"
             },
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ScatteringEditor.PreviewThumSize",
-                "value": "{\"m_Value\":60}"
+                "value": "{\"m_Value\":124}"
             },
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",

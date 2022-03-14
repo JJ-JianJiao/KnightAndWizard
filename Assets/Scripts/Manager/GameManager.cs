@@ -7,6 +7,10 @@ public class GameManager : Singleton<GameManager>
 {
     public CharacterStats playerStates;
 
+    public string fileName;
+    public string characterClass;
+    public string characterName;
+
     //the freelook type of cinemachine
     private CinemachineFreeLook followCamera;
 

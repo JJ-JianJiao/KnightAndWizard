@@ -261,15 +261,17 @@ public class SelectCharacterUI : MonoBehaviour
 
     private void StartNewGame(PlayableDirector obj)
     {        
-        //TODO: get all data from board
         //save the data into the player class
         //add the player class into the playersList
         //save the data into file
-        Debug.Log("Run SceneController");
+        //Debug.Log("Run SceneController");
 
         CharacterProfile characterProfile = GetCharacterProfileData();
 
         SceneController.Instance.SetCurrentPlayerPrefab(currentCharacter);
+
+
+
         SceneController.Instance.TransitionToFirstLevel(characterProfile);
 
     }

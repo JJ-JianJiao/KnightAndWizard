@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4680978563796446064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2588087201604992266}
+  - component: {fileID: 758936664308246378}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2588087201604992266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4680978563796446064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &758936664308246378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4680978563796446064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9443f943814725a409749b5bf64b3040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeFriendKnight: 0
+  friendKnightPrefab: {fileID: 9018968825129055004, guid: c722f6e8cc1f6684ea803411006a1a54, type: 3}
+  activeStrangeKnight: 0
+  isDeadSlime1: 0
+  isDeadSlime2: 0
+  isDeadSlime3: 0
+  isDeadTurtle1: 0
+  isDeadTurtle2: 0
+  isDeadTurtle3: 0
+  isDeadGrunt1: 0
+  isDeadGrunt2: 0
+  isDeadGrunt3: 0
+  isDeadGolem1: 0
+  isChestPickUp: 0

@@ -50,7 +50,8 @@ public class HealthBarUI : MonoBehaviour
 
             timeLeft = visibleTime;
             healthSlider.fillAmount = 0;
-            Destroy(UIbar.gameObject, 0.5f);
+            if(UIbar!= null)
+                Destroy(UIbar.gameObject, 0.5f);
         }
         else
         {

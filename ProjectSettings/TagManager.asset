@@ -10,6 +10,9 @@ TagManager:
   - Portal
   - MaintWizard
   - MainDogKnight
+  - Item
+  - NPC
+  - ChestContainer
   layers:
   - Default
   - TransparentFX

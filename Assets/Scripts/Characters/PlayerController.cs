@@ -99,6 +99,10 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(attackTarget.transform);
 
 
+            if (attackTarget.name.Contains("Rock")) { 
+                
+            }
+
             //keep moving to the target untill the target is in attackRange
             //while (Vector3.Distance(transform.position, attackTarget.transform.position) > characterStats.attackData.attackRange) {
             while (Vector3.Distance(transform.position, attackTarget.transform.position) > characterStats.AttackRange)

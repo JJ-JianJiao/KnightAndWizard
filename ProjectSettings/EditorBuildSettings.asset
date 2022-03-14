@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 95850e686a5eca54283c76f1d977df93
   - enabled: 1
+    path: Assets/Scenes/InnTown.unity
+    guid: 440e03bb6a83aa24b8200c1517c80a75
+  - enabled: 1
     path: Assets/Scenes/Dungeons01.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Room.unity
     guid: cd1c742b4a48c4a4b83d67b3f80c0ecf
+  - enabled: 1
+    path: Assets/Scenes/MainLand.unity
+    guid: 9a75dfba00e370345bb92c11c2830456
   m_configObjects: {}

@@ -46,6 +46,14 @@ public class PlayerContinueInfoUIController : MonoBehaviour
         transform.root.GetComponent<CanvasGroup>().alpha = 0;
         transform.root.GetComponent<CanvasGroup>().interactable = false;
         SceneController.Instance.SetCurrentPlayerPrefab(characterProfile.characterClass);
+
+
+        GameManager.Instance.fileName = characterProfile.fileName;
+        GameManager.Instance.characterClass = characterProfile.characterClass;
+        GameManager.Instance.characterName = characterProfile.name;
+
+
+
         SceneController.Instance.TransitionToLoadGame(characterProfile);
     }
 

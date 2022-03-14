@@ -10,26 +10,40 @@ public class CharacterStats : MonoBehaviour
     public CharacterData_SO templateData;
     public CharacterData_SO characterData;
     public AttackData_SO attackData;
+    private AttackData_SO baseAttackData;
+    private RuntimeAnimatorController baseAniamtor;
 
     [HideInInspector]
     public bool isCritical;
+
 
     public string fileName;
     public string characterClass;
     public string characterName;
 
+    [Header("Weapon")]
+    public Transform weaponSlot;
+
+    private bool getExp;
+
     private void Awake()
     {
-        if (templateData != null) {
+        baseAniamtor = GetComponent<Animator>().runtimeAnimatorController;
+        if (templateData != null)
+        {
             characterData = Instantiate(templateData);
         }
+        baseAttackData = Instantiate(attackData);
+
+        getExp = false;
     }
 
     #region Read from Data_SO
-    public int MaxHealth {
+    public int MaxHealth
+    {
         get { if (characterData != null) return characterData.maxHealth; else return 0; }
-        set { characterData.maxHealth = value;}
-     }
+        set { characterData.maxHealth = value; }
+    }
 
     public int CurrentHealth
     {
@@ -94,30 +108,41 @@ public class CharacterStats : MonoBehaviour
     #endregion
 
     #region Character Combat
-    public void TakeDamage(CharacterStats attacker, CharacterStats defener) {
-        int damage = Mathf.Max(attacker.CurrentDamage() - defener.CurrentDefence,0);
+    public void TakeDamage(CharacterStats attacker, CharacterStats defener)
+    {
+        int damage = Mathf.Max(attacker.CurrentDamage() - defener.CurrentDefence, 0);
         CurrentHealth = Mathf.Max(CurrentHealth - damage, 0);
 
-        if (attacker.isCritical && CurrentHealth !=0) {
+        if (attacker.isCritical && CurrentHealth != 0)
+        {
             defener.GetComponent<Animator>().SetTrigger("GetHit");
         }
 
         // Update UI health bar
         UpdateHealthBarOnAttack?.Invoke(CurrentHealth, MaxHealth);
         // level UPDATE
-        if (CurrentHealth <= 0) {
-            if(attacker.CompareTag("Player"))
+        if (CurrentHealth <= 0)
+        {
+            if (attacker.CompareTag("Player") && !getExp)
+            {
                 attacker.characterData.UpdateExp(characterData.killPoint);
+                getExp = true;
+            }
         }
     }
 
-    public void TakeDamage(int damage, CharacterStats defender) {
+
+    public void TakeDamage(int damage, CharacterStats defender)
+    {
         int currentDamage = Mathf.Max(damage - defender.CurrentDefence, 0);
         CurrentHealth = Mathf.Max(CurrentHealth - currentDamage, 0);
         // Update UI
         UpdateHealthBarOnAttack?.Invoke(CurrentHealth, MaxHealth);
-        if (CurrentHealth <= 0 && defender.CompareTag("Enemy"))
+        if (CurrentHealth <= 0 && defender.CompareTag("Enemy") && !getExp)
+        {
+            getExp = true;
             GameManager.Instance.playerStates.characterData.UpdateExp(characterData.killPoint);
+        }
     }
 
     private int CurrentDamage()
@@ -126,12 +151,75 @@ public class CharacterStats : MonoBehaviour
         float coreDamage = UnityEngine.Random.Range(attackData.minDamage, attackData.maxDamage);
 
         //calculate the damage if the attack has critical hit
-        if (isCritical) {
+        if (isCritical)
+        {
             coreDamage *= attackData.criticalMultiplier;
             //Debug.Log("Critical Damage" + coreDamage);
         }
 
         return (int)coreDamage;
+    }
+
+    #endregion
+
+    #region Equip Weapon
+
+    public void ChangeWeapon(ItemData_SO weapon) {
+
+        UnEquipWeapon();
+        EquipWeapon(weapon);
+        //InventoryManager.Instance.UpdateStatsText(CurrentHealth, attackData.minDamage, attackData.maxDamage);
+    }
+
+    public void EquipWeapon(ItemData_SO weapon) {
+        if (weapon.weaponPrefab != null) {
+            var w = Instantiate(weapon.weaponPrefab, weaponSlot);
+            if(w.gameObject.layer != LayerMask.NameToLayer("Player"))
+                w.gameObject.layer = LayerMask.NameToLayer("Player");
+        }
+
+        //TODO: update attribute 
+        //TODO:Switch animation
+        //attackData.ApplyWeaponData(weapon.weaponData, 0);
+        attackData.ApplyWeaponData(weapon.weaponData);
+        GetComponent<Animator>().runtimeAnimatorController = weapon.weaponAnimator;
+        //InventoryManager.Instance.UpdateStatsText(CurrentHealth, attackData.minDamage, attackData.maxDamage);
+    }
+
+
+    public void UnEquipWeapon() {
+
+        if (weaponSlot.transform.childCount != 0) {
+            for (int i = 0; i < weaponSlot.transform.childCount; i++)
+            {
+                Destroy(weaponSlot.transform.GetChild(i).gameObject);
+            }
+        
+        }
+
+        attackData.ApplyWeaponData(baseAttackData);
+        //TODO:Switch animation
+        GetComponent<Animator>().runtimeAnimatorController = baseAniamtor;
+    }
+    #endregion
+
+    #region Aplly Data Change
+
+    public void ApplyHealth(int amount) {
+
+        //TODO: if currentHealth == MaxHealth, can not heal
+
+        if (CurrentHealth + amount <= MaxHealth)
+            CurrentHealth += amount;
+        else
+            CurrentHealth = MaxHealth; 
+    }
+
+
+    internal void GetFullStates()
+    {
+        CurrentHealth = MaxHealth;
+        Debug.Log("I get heal and my current Health is: " + CurrentHealth);
     }
 
     #endregion

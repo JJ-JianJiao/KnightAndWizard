@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1be046d68f8794bbbc4def0af4e003, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  itemType: 1
+  itemName: Sword
+  itemIcon: {fileID: 21300000, guid: 3ef45cf7a8bd050458429ac52439b4bc, type: 3}
+  itemAmount: 1
+  description: This is the legend sword!
+  stackable: 0
+  weaponPrefab: {fileID: 5572738857068769323, guid: 7bdef88536619e24a95aec376fbfb13f, type: 3}
+  weaponData: {fileID: 11400000, guid: 09f0c42d9bd420046bf800aae0af4163, type: 2}
+  weaponAnimator: {fileID: 22100000, guid: 256836656e9891344a4be91b960a8b09, type: 2}
+  useableItemData: {fileID: 0}

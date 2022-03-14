@@ -35,8 +35,11 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
     bool isChase;
     bool isFollow;
     bool isDead;
+    bool isBoardcastStates;
 
     bool playerDead; //store the player dead state, default is false.
+
+    public bool IsDead { get => isDead; }
 
     private void Awake()
     {
@@ -50,7 +53,7 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
         guardRotation = transform.rotation;
         remainLookAtTime = lookAtTime;
         playerDead = false;
-
+        isBoardcastStates = false;
     }
 
     private void Start()
@@ -66,7 +69,9 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
         //TODO: scene switch, this will need to modify
         GameManager.Instance.AddObserver(this);
 
+
     }
+
 
     //private void OnEnable()
     //{
@@ -77,12 +82,21 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
     {
         if (!GameManager.IsInitialized) return;
         GameManager.Instance.RemoveObserver(this);
+
+        if (GetComponent<LootSpawner>() && IsDead) {
+            GetComponent<LootSpawner>().Spawnloot();
+        }
     }
 
     private void Update()
     {
         if (characterStats.CurrentHealth == 0) {
             isDead = true;
+            if (!isBoardcastStates)
+            {
+                isBoardcastStates = true;
+                RecordStates(gameObject.name);
+            }
         }
 
         //when player is not dead, all actions work
@@ -99,12 +113,12 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
         anim.SetBool("Chase", isChase);
         anim.SetBool("Follow", isFollow);
         anim.SetBool("Critical", characterStats.isCritical);
-        anim.SetBool("Death", isDead);
+        anim.SetBool("Death", IsDead);
     }
 
     void SwitchStates() {
 
-        if (isDead)
+        if (IsDead)
         {
             enemyStates = EnemyStates.DEAD;
             GetComponent<Collider>().enabled = false;
@@ -303,5 +317,45 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
         isWalk = false;
         attackTarget = null;
         playerDead = true;
+    }
+
+
+    private void RecordStates(string name)
+    {
+        switch (name)
+        {
+            case "Slime1":
+                LevelManager.Instance.isDeadSlime1 = true;
+                break;
+            case "Slime2":
+                LevelManager.Instance.isDeadSlime2 = true;
+                break;
+            case "Slime3":
+                LevelManager.Instance.isDeadSlime3 = true;
+                break;
+            case "TurtleShell1":
+                LevelManager.Instance.isDeadTurtle1 = true;
+                break;
+            case "TurtleShell2":
+                LevelManager.Instance.isDeadTurtle2 = true;
+                break;
+            case "TurtleShell3":
+                LevelManager.Instance.isDeadTurtle3 = true;
+                break;
+            case "Grunt1":
+                LevelManager.Instance.isDeadGrunt1 = true;
+                break;
+            case "Grunt2":
+                LevelManager.Instance.isDeadGrunt2 = true;
+                break;
+            case "Grunt3":
+                LevelManager.Instance.isDeadGrunt3 = true;
+                break;
+            case "Golem1":
+                LevelManager.Instance.isDeadGolem1 = true;
+                break;
+            default:
+                break;
+        }
     }
 }

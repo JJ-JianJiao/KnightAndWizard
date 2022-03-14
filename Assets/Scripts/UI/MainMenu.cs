@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -32,7 +33,10 @@ public class MainMenu : MonoBehaviour
         //director = FindObjectOfType<PlayableDirector>();
         director.stopped += NewGame;
         //selectCharactersDirector.stopped += NewGame;
+
+
     }
+
 
 
     void PlayTimeLine() {
@@ -66,4 +70,6 @@ public class MainMenu : MonoBehaviour
     {
         wizardChracterBoard.SetActive(true);
     }
+
+ 
 }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 150
   currentHealth: 150
-  baseDefence: 10
-  currentDefence: 10
+  baseDefence: 7
+  currentDefence: 7
   killPoint: 100
   currentLevel: 0
   maxLevel: 0

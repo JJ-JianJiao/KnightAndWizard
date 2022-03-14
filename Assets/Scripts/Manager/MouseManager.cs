@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 using UnityEngine.SceneManagement;
 
@@ -43,7 +44,8 @@ public class MouseManager : Singleton<MouseManager>
 
 
         SetCursorTexture();
-        MouseControl();
+        if(!InteractWithUI())
+            MouseControl();
     }
 
     void SetCursorTexture() {
@@ -59,10 +61,16 @@ public class MouseManager : Singleton<MouseManager>
                     Cursor.SetCursor(target, new Vector2(16, 16), CursorMode.Auto);
                     break;
                 case "Enemy":
+                case "Attackable":
                     Cursor.SetCursor(attack, new Vector2(16, 16), CursorMode.Auto);
                     break;
                 case "Portal":
                     Cursor.SetCursor(doorway, new Vector2(16, 16), CursorMode.Auto);
+                    break;  
+                case "Item":
+                case "NPC":
+                case "ChestContainer":
+                    Cursor.SetCursor(point, new Vector2(16, 16), CursorMode.Auto);
                     break;
                 case "MainDogKnight":
                 case "MaintWizard":
@@ -81,6 +89,8 @@ public class MouseManager : Singleton<MouseManager>
 
             if (hitInfo.collider.gameObject.CompareTag("Ground")) {
                 OnMouseClicked?.Invoke(hitInfo.point);
+
+
             }
             if (hitInfo.collider.gameObject.CompareTag("Enemy"))
             {
@@ -94,6 +104,15 @@ public class MouseManager : Singleton<MouseManager>
             {
                 OnMouseClicked?.Invoke(hitInfo.point);
             }
+            if (hitInfo.collider.gameObject.CompareTag("Item"))
+            {
+                OnMouseClicked?.Invoke(hitInfo.point);
+            }
+            //if (hitInfo.collider.gameObject.CompareTag("ChestContainer"))
+            //{
+            //    OnMouseClicked?.Invoke(hitInfo.point);
+            //}
+
 
             if (hitInfo.collider.gameObject.CompareTag("MainDogKnight")) {
                 //mainDogKnight.SetActive(true);
@@ -122,6 +141,21 @@ public class MouseManager : Singleton<MouseManager>
 
         }
     }
+
+
+    bool InteractWithUI() {
+
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
+    //TODO: aaaaaaaaa add method next time
 
 
 }

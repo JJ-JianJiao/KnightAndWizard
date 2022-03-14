@@ -47,7 +47,17 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
 
     IEnumerator Transition(string SceneName, TransitionDestination.DestinationTag destinationTag) {
         //TODO: save data
-        SaveManager.Instance.SavePlayerDataPlayerPrefs();
+        //SaveManager.Instance.SavePlayerDataPlayerPrefs();
+
+        GameObject generatePlayer;
+
+        SaveManager.Instance.SavePlayerProfileXML();
+
+        InventoryManager.Instance.SaveData();
+
+        LevelManager.Instance.SaveData();
+
+
         SceneFader fade = Instantiate(sceneFaderPrefab);
 
         if (SceneManager.GetActiveScene().name != SceneName)
@@ -55,8 +65,23 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             yield return StartCoroutine(fade.FadeOut(2f));
 
             yield return SceneManager.LoadSceneAsync(SceneName);
-            yield return Instantiate(playerPrefab, GetDestination(destinationTag).transform.position, GetDestination(destinationTag).transform.rotation);
-            SaveManager.Instance.LoadPlayerData();
+            yield return generatePlayer = Instantiate(playerPrefab, GetDestination(destinationTag).transform.position, GetDestination(destinationTag).transform.rotation);
+
+            //SaveManager.Instance.LoadPlayerData();
+
+            SaveManager.Instance.SycPlayerData(SaveManager.Instance.LoadPlayerProfileXML(GameManager.Instance.fileName));
+            InventoryManager.Instance.LoadData();
+            LevelManager.Instance.LoadData();
+
+            LevelManager.Instance.SyncLevelState(SceneName);
+            if (LevelManager.Instance.activeFriendKnight)
+            {
+                var friendKnight = Instantiate(LevelManager.Instance.friendKnightPrefab, generatePlayer.transform.position +
+                    new Vector3((UnityEngine.Random.value < 0.5f ? -1f : 1f) * 3, (UnityEngine.Random.value < 0.5f ? -1f : 1f) * 3,
+                    (UnityEngine.Random.value < 0.5f ? -1f : 1f) * 3), generatePlayer.transform.rotation);
+                friendKnight.GetComponent<FriendKnight>().SetFollowTarget(generatePlayer);
+
+            }
 
             yield return StartCoroutine(fade.FadeIn(2f));
             yield break;
@@ -76,7 +101,11 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             yield return null;
         }
     }
-
+    /// <summary>
+    /// This mothod is for PlayerPrefs Save model.
+    /// </summary>
+    /// <param name="scene"> scene name </param>
+    /// <returns></returns>
     IEnumerator LoadLevel(string scene) {
         SceneFader fade = Instantiate(sceneFaderPrefab);
         if (scene != "")
@@ -89,12 +118,20 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             //save data
             SaveManager.Instance.SavePlayerDataPlayerPrefs();
 
+            InventoryManager.Instance.SaveData();
+
             yield return StartCoroutine(fade.FadeIn(2f));
             yield break;
         }
         
     }
 
+    /// <summary>
+    /// This SaveLevel is for the Multiple PlayerPrefabs and save as XML format
+    /// </summary>
+    /// <param name="scene"> scene name </param>
+    /// <param name="cp"> CharacterProfile, which have the current player info </param>
+    /// <returns></returns>
     IEnumerator SaveLevel(string scene, CharacterProfile cp)
     {
         SceneFader fade = Instantiate(sceneFaderPrefab);
@@ -108,6 +145,10 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             //save data
             //SaveManager.Instance.SavePlayerDataPlayerPrefs();
             SaveManager.Instance.SaveNewPlayerDataXML(cp);
+
+            InventoryManager.Instance.SaveData();
+
+            LevelManager.Instance.SaveData();
 
             yield return StartCoroutine(fade.FadeIn(2f));
             yield break;
@@ -123,7 +164,16 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             yield return StartCoroutine(fade.FadeOut(2f));
 
             yield return SceneManager.LoadSceneAsync(scene);
-            yield return player = Instantiate(playerPrefab, GameManager.Instance.GetEntrance().position, GameManager.Instance.GetEntrance().rotation);
+            //yield return player = Instantiate(playerPrefab, GameManager.Instance.GetEntrance().position, GameManager.Instance.GetEntrance().rotation);
+
+            if (cp.positionX != -1 && cp.positionY != -1 && cp.positionZ != -1 && cp.rotationX != -1 && cp.rotationY != -1 && cp.rotationZ != -1)
+            {
+                yield return player = Instantiate(playerPrefab, new Vector3(cp.positionX,cp.positionY,cp.positionZ), Quaternion.Euler(cp.rotationX,cp.rotationY,cp.rotationZ));
+            }
+            else {
+                yield return player = Instantiate(playerPrefab, GameManager.Instance.GetEntrance().position, GameManager.Instance.GetEntrance().rotation);
+            }
+
 
             GameManager.Instance.playerStates.fileName = cp.fileName;
             GameManager.Instance.playerStates.characterClass = cp.characterClass;
@@ -149,7 +199,17 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             GameManager.Instance.playerStates.attackData.minDamage = cp.minDamage;
             GameManager.Instance.playerStates.attackData.maxDamage = cp.maxDamage;
             //SaveManager.Instance.playerFileName = cp.fileName;
+            InventoryManager.Instance.LoadData();
+            LevelManager.Instance.LoadData();
 
+            if (LevelManager.Instance.activeFriendKnight) {
+                var friendKnight = Instantiate(LevelManager.Instance.friendKnightPrefab, player.transform.position + 
+                    new Vector3((UnityEngine.Random.value < 0.5f ? -1f : 1f) * 3, (UnityEngine.Random.value < 0.5f ? -1f : 1f) * 3, 
+                    (UnityEngine.Random.value < 0.5f ? -1f : 1f) * 3), player.transform.rotation);
+                friendKnight.GetComponent<FriendKnight>().SetFollowTarget(player);
+
+            }
+            LevelManager.Instance.SyncLevelState(SceneManager.GetActiveScene().name);
             yield return StartCoroutine(fade.FadeIn(2f));
             yield break;
         }
@@ -165,16 +225,19 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
     {
         //StartCoroutine(SaveLevel(characterProfile.sceneName, characterProfile));
         //TODO: sceneName need to be saved
-        StartCoroutine(LoadLevel("Dungeons01", characterProfile));
+        //StartCoroutine(LoadLevel("Dungeons01", characterProfile));
+        StartCoroutine(LoadLevel(characterProfile.sceneName, characterProfile));
     }
 
     public void TransitionToFirstLevel() {
-        StartCoroutine(LoadLevel("Dungeons01"));
+        //StartCoroutine(LoadLevel("Dungeons01"));
+        StartCoroutine(LoadLevel("InnTown"));
     }
 
     public void TransitionToFirstLevel(CharacterProfile cp)
     {
-        StartCoroutine(SaveLevel("Dungeons01", cp));
+        //StartCoroutine(SaveLevel("Dungeons01", cp));
+        StartCoroutine(SaveLevel(cp.sceneName, cp));
     }
 
     public void TransitionToMain() {
