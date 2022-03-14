@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public enum SlotType { BAG, WEAPON, ARMOR, ACTION}
+public enum SlotType { BAG, WEAPON, ARMOR, ACTION,CONTAINER01}
 public class SlotHolder : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler
 {
     public SlotType slotType;
@@ -37,6 +37,9 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler,IPointerEnterHandl
         {
             case SlotType.BAG:
                 itemUI.Bag = InventoryManager.Instance.inventoryData;
+                break;
+            case SlotType.CONTAINER01:
+                itemUI.Bag = InventoryManager.Instance.ChestContainer01;
                 break;
             case SlotType.WEAPON:
                 itemUI.Bag = InventoryManager.Instance.equipmentData;

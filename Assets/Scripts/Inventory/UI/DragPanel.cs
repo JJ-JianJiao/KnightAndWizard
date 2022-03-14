@@ -25,6 +25,7 @@ public class DragPanel : MonoBehaviour,IDragHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        rectTransform.SetSiblingIndex(2);
+        //if(!name.Contains("ChestContainer"))
+        rectTransform.SetSiblingIndex(InventoryManager.Instance.dragSiblingIndex);
     }
 }

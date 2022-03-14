@@ -49,6 +49,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             if (InventoryManager.Instance.CheckActionUI(eventData.position) ||
                 InventoryManager.Instance.CheckEquipmentUI(eventData.position) ||
+                InventoryManager.Instance.CheckChestContainer01UI(eventData.position) ||
                 InventoryManager.Instance.CheckInventoryUI(eventData.position)) {
 
                 if (eventData.pointerEnter.gameObject.GetComponent<SlotHolder>())
@@ -65,6 +66,9 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                     switch (targetHolder.slotType)
                     {
                         case SlotType.BAG:
+                            SwapItem();
+                            break;
+                        case SlotType.CONTAINER01:
                             SwapItem();
                             break;
                         case SlotType.WEAPON:

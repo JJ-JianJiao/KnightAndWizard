@@ -3,12 +3,12 @@
   <fileName>Player0</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>InnTown</sceneName>
-  <positionX>34.0574265</positionX>
-  <positionY>0.08332968</positionY>
-  <positionZ>13.9540768</positionZ>
-  <rotationX>0</rotationX>
-  <rotationY>270.234039</rotationY>
-  <rotationZ>0</rotationZ>
+  <positionX>43.49868</positionX>
+  <positionY>0.0833296254</positionY>
+  <positionZ>8.547765</positionZ>
+  <rotationX>-0</rotationX>
+  <rotationY>143.851563</rotationY>
+  <rotationZ>-0</rotationZ>
   <name>Aada</name>
   <maxHealth>171</maxHealth>
   <currentHealth>169</currentHealth>
@@ -19,13 +19,13 @@
   <baseExp>531</baseExp>
   <currentExp>270</currentExp>
   <levelBuff>0.1</levelBuff>
-  <attackRange>1.8</attackRange>
+  <attackRange>1.5</attackRange>
   <skillRange>0</skillRange>
-  <coolDown>1</coolDown>
-  <criticalMultiplier>2</criticalMultiplier>
-  <criticalChance>0.2</criticalChance>
-  <minDamage>21</minDamage>
-  <maxDamage>23</maxDamage>
+  <coolDown>0.8</coolDown>
+  <criticalMultiplier>1.5</criticalMultiplier>
+  <criticalChance>0.15</criticalChance>
+  <minDamage>11</minDamage>
+  <maxDamage>13</maxDamage>
   <stamina>0</stamina>
   <strength>0</strength>
   <agility>0</agility>

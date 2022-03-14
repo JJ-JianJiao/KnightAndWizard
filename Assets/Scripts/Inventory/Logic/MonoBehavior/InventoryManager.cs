@@ -26,11 +26,18 @@ public class InventoryManager : Singleton<InventoryManager>
     public InventoryData_SO equipmentTemplate;
 
 
+    public InventoryData_SO ChestContainer01Template;
+
+    public InventoryData_SO ChestContainer01;
+
+
 
     [Header("ContainerS")]
     public ContainerUI inventoryUI;
     public ContainerUI actionUI;
     public ContainerUI equipmentUI;
+
+    public ContainerUI chestContainer01UI;
 
     [Header("Drag Canvas")]
     public Canvas dragCanvas;
@@ -52,6 +59,8 @@ public class InventoryManager : Singleton<InventoryManager>
     [Header("Tooltip")]
     public ItemTooltip tooltip;
 
+    public int dragSiblingIndex = 2;
+
     protected override void Awake()
     {
         base.Awake();
@@ -65,6 +74,10 @@ public class InventoryManager : Singleton<InventoryManager>
         if (equipmentTemplate != null)
         {
             equipmentData = Instantiate(equipmentTemplate);
+        }
+        if (ChestContainer01Template != null)
+        {
+            ChestContainer01 = Instantiate(ChestContainer01Template);
         }
 
     }
@@ -124,6 +137,24 @@ public class InventoryManager : Singleton<InventoryManager>
         }
         return false;
     }
+
+    public bool CheckChestContainer01UI(Vector3 position)
+    {
+        if (chestContainer01UI)
+        {
+            for (int i = 0; i < chestContainer01UI.slotHolders.Length; i++)
+            {
+                RectTransform t = chestContainer01UI.slotHolders[i].transform as RectTransform;
+                if (RectTransformUtility.RectangleContainsScreenPoint(t, position))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else return false;
+    }
+
     public bool CheckActionUI(Vector3 position)
     {
         for (int i = 0; i < actionUI.slotHolders.Length; i++)
