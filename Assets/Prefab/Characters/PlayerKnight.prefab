@@ -570,7 +570,7 @@ Animator:
   m_GameObject: {fileID: 2198958884519801890}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a58d63122b09e9144938cd6a1ece4824, type: 3}
-  m_Controller: {fileID: 22100000, guid: b42ab059f1fd71d49b14541064f37570, type: 2}
+  m_Controller: {fileID: 22100000, guid: ecf812e483adebf408128dcbcb8a37f3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -658,6 +658,7 @@ MonoBehaviour:
   templateData: {fileID: 11400000, guid: 29208d1b7b0f4f74bbd6780317e7a0a6, type: 2}
   characterData: {fileID: 0}
   attackData: {fileID: 11400000, guid: a7014f30f5478cf47b91af0a4f27d12d, type: 2}
+  defenceData: {fileID: 0}
   isCritical: 0
   fileName: 
   characterClass: 
