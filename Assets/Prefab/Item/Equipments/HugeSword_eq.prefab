@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7815961939836398401}
   - component: {fileID: 945110633735127940}
   - component: {fileID: 9178505148907377795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HugeSword_eq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723833488869994348}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0.72354764, y: -0.5149419, z: 0.16130796, w: 0.4304572}
+  m_LocalPosition: {x: 0.362, y: 0.634, z: 0.193}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -27.18, y: -130.469, z: 96.395}
 --- !u!114 &6817688949079924874
 MonoBehaviour:
   m_ObjectHideFlags: 0
