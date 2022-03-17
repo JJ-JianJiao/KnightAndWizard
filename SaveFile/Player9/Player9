@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player8</fileName>
+  <fileName>Player9</fileName>
   <characterClass>Knight</characterClass>
-  <sceneName>MainLand</sceneName>
-  <positionX>37.9257278</positionX>
-  <positionY>0.0333344936</positionY>
-  <positionZ>10.9583616</positionZ>
-  <rotationX>0</rotationX>
-  <rotationY>221.858109</rotationY>
+  <sceneName>Dungeons01</sceneName>
+  <positionX>2.720589</positionX>
+  <positionY>0.0468378067</positionY>
+  <positionZ>4.50471</positionZ>
+  <rotationX>-0</rotationX>
+  <rotationY>132.494965</rotationY>
   <rotationZ>0</rotationZ>
-  <name>Qeq</name>
-  <maxHealth>100</maxHealth>
-  <currentHealth>100</currentHealth>
+  <name>Aad</name>
+  <maxHealth>171</maxHealth>
+  <currentHealth>154</currentHealth>
   <baseDefence>2</baseDefence>
   <currentDefence>2</currentDefence>
-  <currentLevel>1</currentLevel>
+  <currentLevel>4</currentLevel>
   <maxLevel>30</maxLevel>
-  <baseExp>50</baseExp>
-  <currentExp>0</currentExp>
+  <baseExp>531</baseExp>
+  <currentExp>295</currentExp>
   <levelBuff>0.1</levelBuff>
   <attackRange>2.2</attackRange>
   <skillRange>0</skillRange>

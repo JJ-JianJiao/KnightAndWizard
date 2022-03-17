@@ -2,9 +2,9 @@
     "items": [
         {
             "itemData": {
-                "instanceID": 0
+                "instanceID": 21902
             },
-            "amount": 0
+            "amount": 1
         },
         {
             "itemData": {
@@ -56,7 +56,7 @@
         },
         {
             "itemData": {
-                "instanceID": 27684
+                "instanceID": 0
             },
             "amount": 1
         },

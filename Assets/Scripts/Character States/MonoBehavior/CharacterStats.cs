@@ -193,6 +193,11 @@ public class CharacterStats : MonoBehaviour
         //attackData.ApplyWeaponData(weapon.weaponData, 0);
         attackData.ApplyWeaponData(weapon.weaponData);
         GetComponent<Animator>().runtimeAnimatorController = weapon.weaponAnimator;
+        if (weapon.isTwoHandWeapn && rightWeaponSlot.childCount != 0) {
+            //TODO: move the right weapon to bag
+            InventoryManager.Instance.UnequipRightWeapon();
+            UnEquipRightWeapon();
+        }
         //InventoryManager.Instance.UpdateStatsText(CurrentHealth, attackData.minDamage, attackData.maxDamage);
     }
 
@@ -211,6 +216,10 @@ public class CharacterStats : MonoBehaviour
         //attackData.ApplyWeaponData(weapon.weaponData);
         CurrentDefence += weapon.shieldData.defence;
 
+        if (weaponSlot.childCount != 0 && InventoryManager.Instance.equipmentData.items[0].itemData.isTwoHandWeapn) {
+            InventoryManager.Instance.UnequipLeftWeapon();
+            attackData.ApplyWeaponData(baseAttackData);
+        }
 
         GetComponent<Animator>().runtimeAnimatorController = weapon.shieldAnimator;
         //InventoryManager.Instance.UpdateStatsText(CurrentHealth, attackData.minDamage, attackData.maxDamage);

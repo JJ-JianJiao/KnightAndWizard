@@ -3,11 +3,11 @@
   <fileName>Player5</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>InnTown</sceneName>
-  <positionX>11.0207148</positionX>
-  <positionY>0.083330065</positionY>
-  <positionZ>19.9440765</positionZ>
-  <rotationX>-0</rotationX>
-  <rotationY>53.50891</rotationY>
+  <positionX>30.6049</positionX>
+  <positionY>0.08332968</positionY>
+  <positionZ>13.4321041</positionZ>
+  <rotationX>0</rotationX>
+  <rotationY>267.992462</rotationY>
   <rotationZ>0</rotationZ>
   <name>Aaa</name>
   <maxHealth>100</maxHealth>

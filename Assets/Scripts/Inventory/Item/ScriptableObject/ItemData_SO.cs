@@ -10,6 +10,7 @@ public class ItemData_SO : ScriptableObject
     public string itemName;
     public Sprite itemIcon;
     public int itemAmount;
+    public bool isTwoHandWeapn;
     [TextArea]
     public string description = "";
 

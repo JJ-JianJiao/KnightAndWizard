@@ -19,7 +19,7 @@ public class ItemPickUp : MonoBehaviour
             if (gameObject.name == "ChestWithCoins") {
                 LevelManager.Instance.isChestPickUp = true;
             }
-
+                
             Destroy(gameObject);
         }
     }

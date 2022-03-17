@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -221,6 +222,44 @@ public class InventoryManager : Singleton<InventoryManager>
             }
         }
         return false;
+    }
+
+    public void UnequipRightWeapon()
+    {
+        var tempItem = equipmentData.items[1];
+        for (int i = 0; i < inventoryData.items.Count; i++)
+        {
+            if (inventoryData.items[i].itemData == null) {
+                equipmentData.items[1] = inventoryData.items[i];
+                inventoryData.items[i] = tempItem;
+
+                equipmentUI.GetComponent<ContainerUI>().slotHolders[1].GetComponent<SlotHolder>().UpdateItem();
+                //inventoryUI.transform.Find("Inventory Container").GetComponent<ContainerUI>().slotHolders[i].GetComponent<SlotHolder>().UpdateItem();
+                inventoryUI.transform.GetComponentInChildren<ContainerUI>().slotHolders[i].GetComponent<SlotHolder>().UpdateItem();
+
+                break;
+            }
+        }
+
+    }
+
+    public void UnequipLeftWeapon()
+    {
+        var tempItem = equipmentData.items[0];
+        for (int i = 0; i < inventoryData.items.Count; i++)
+        {
+            if (inventoryData.items[i].itemData == null)
+            {
+                equipmentData.items[0] = inventoryData.items[i];
+                inventoryData.items[i] = tempItem;
+
+                equipmentUI.GetComponent<ContainerUI>().slotHolders[0].GetComponent<SlotHolder>().UpdateItem();
+                //inventoryUI.transform.Find("Inventory Container").GetComponent<ContainerUI>().slotHolders[i].GetComponent<SlotHolder>().UpdateItem();
+                inventoryUI.transform.GetComponentInChildren<ContainerUI>().slotHolders[i].GetComponent<SlotHolder>().UpdateItem();
+
+                break;
+            }
+        }
     }
 
     public bool CheckEquipmentUI(Vector3 position)
