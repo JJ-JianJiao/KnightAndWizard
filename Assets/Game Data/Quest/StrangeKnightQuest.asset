@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2062bac83fc3634fa099d65a4a0d8b6, type: 3}
+  m_Name: StrangeKnightQuest
+  m_EditorClassIdentifier: 
+  questName: Punish some monsters
+  description: Strange Hero wants me to kill three slimes and two turtles. He will
+    give me some rewards when I finish the quest.
+  isStarted: 0
+  isComplete: 0
+  isFinished: 0
+  questRequires:
+  - name: Slimes
+    requireAmount: 3
+    currentAmount: 0
+  - name: Turtle
+    requireAmount: 2
+    currentAmount: 0
+  rewards:
+  - itemData: {fileID: 11400000, guid: 066ff71613e04d7479b1e5b3b0b8db4a, type: 2}
+    amount: 1
+  - itemData: {fileID: 11400000, guid: 6972c8c9bc4155b4d9d056f98623ed3a, type: 2}
+    amount: 2

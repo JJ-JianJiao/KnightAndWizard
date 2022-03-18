@@ -25,6 +25,17 @@ public class DialogueUI : Singleton<DialogueUI>
         nextButton.onClick.AddListener(ContinueDialogue);
     }
 
+    //private void LateUpdate()
+    //{
+    //    StartCoroutine("UpdateLayout", dialoguePanel.GetComponent<RectTransform>());
+    //}
+
+    IEnumerator UpdateLayout(RectTransform rect)
+    {
+        yield return new WaitForEndOfFrame();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+    }
+
     void ContinueDialogue() {
         if (currentIndex < currenData.dialoguePieces.Count)
             UpdateMainDialogue(currenData.dialoguePieces[currentIndex]);
@@ -50,6 +61,9 @@ public class DialogueUI : Singleton<DialogueUI>
         mainText.text = "";
         mainText.text = piece.text;
 
+
+
+
         if (piece.options.Count == 0 && currenData.dialoguePieces.Count > 0)
         {
             nextButton.interactable = true;
@@ -65,7 +79,7 @@ public class DialogueUI : Singleton<DialogueUI>
 
         //Create current options
         CreateOptions(piece);
-
+        StartCoroutine("UpdateLayout", dialoguePanel.GetComponent<RectTransform>());
     }
 
     void CreateOptions(DialoguePiece piece) {

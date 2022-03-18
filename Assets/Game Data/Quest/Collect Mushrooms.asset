@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2062bac83fc3634fa099d65a4a0d8b6, type: 3}
+  m_Name: Collect Mushrooms
+  m_EditorClassIdentifier: 
+  questName: Collect Mushrooms
+  description: The FriendKnight will give me a legend shiled if I can collect 5 mushrooms!
+  isStarted: 0
+  isComplete: 0
+  isFinished: 0
+  questRequires:
+  - name: Heal Mushroom
+    requireAmount: 5
+    currentAmount: 0
+  rewards:
+  - itemData: {fileID: 11400000, guid: d166cf13af696fa4f930a62db082d84a, type: 2}
+    amount: 1
