@@ -44,14 +44,21 @@ public class MouseManager : Singleton<MouseManager>
 
 
         SetCursorTexture();
-        if(!InteractWithUI())
+        if (!InteractWithUI())
             MouseControl();
+        else
+            return;
     }
 
     void SetCursorTexture() {
 
         //Camera.main - ccessing this property has a small CPU overhead, comparable to calling GameObject.GetComponent.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (InteractWithUI()) {
+            Cursor.SetCursor(point, Vector2.zero, CursorMode.Auto);
+            return;
+        }
 
         if (Physics.Raycast(ray, out hitInfo)) {
             //TODO: Switch the cursor
@@ -70,11 +77,11 @@ public class MouseManager : Singleton<MouseManager>
                 case "Item":
                 case "NPC":
                 case "ChestContainer":
-                    Cursor.SetCursor(point, new Vector2(16, 16), CursorMode.Auto);
+                    Cursor.SetCursor(point, Vector2.zero, CursorMode.Auto);
                     break;
                 case "MainDogKnight":
                 case "MaintWizard":
-                    Cursor.SetCursor(point, new Vector2(16, 16), CursorMode.Auto);
+                    Cursor.SetCursor(point, Vector2.zero, CursorMode.Auto);
                     break;
                 default:
                     Cursor.SetCursor(arrow, new Vector2(16, 16), CursorMode.Auto);

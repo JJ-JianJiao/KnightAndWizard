@@ -10,7 +10,7 @@ public class OptionUI : MonoBehaviour
     private DialoguePiece dialoguePiece;
 
     private string nextPieceID;
-    private bool hasQuest;
+    private bool takeQuest;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class OptionUI : MonoBehaviour
         dialoguePiece = piece;
         optionText.text = option.text;
         nextPieceID = option.targetID;
-        hasQuest = option.takeQuest;
+        takeQuest = option.takeQuest;
     }
 
     public void OnOptionClicked() {
@@ -32,15 +32,24 @@ public class OptionUI : MonoBehaviour
             {
                 questData = Instantiate(dialoguePiece.quest)
             };
-            if (hasQuest) {
+            if (takeQuest) {
                 //add into quest list
                 if (QuestManager.Instance.HaveQuest(newTask.questData))
                 {
                     //if finished, get reward
+                    if (QuestManager.Instance.GetTask(newTask.questData).IsComplete) {
+                        newTask.questData.GiveRewards();
+                        QuestManager.Instance.GetTask(newTask.questData).IsFinished = true;
+                    }
                 }
                 else {
                     QuestManager.Instance.tasks.Add(newTask);
                     QuestManager.Instance.GetTask(newTask.questData).IsStarted = true;
+
+                    foreach (var requireItem in newTask.questData.RequireTargetName())
+                    {
+                        InventoryManager.Instance.CheckQuestItemInBag(requireItem);
+                    }
                 }
             }
         }

@@ -19,6 +19,9 @@ public class ItemPickUp : MonoBehaviour
             if (gameObject.name == "ChestWithCoins") {
                 LevelManager.Instance.isChestPickUp = true;
             }
+
+            //check the quests
+            QuestManager.Instance.UpdateQuestProgress(itemData.itemName, itemData.itemAmount);
                 
             Destroy(gameObject);
         }

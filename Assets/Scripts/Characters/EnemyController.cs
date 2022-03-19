@@ -86,6 +86,19 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
         if (GetComponent<LootSpawner>() && IsDead) {
             GetComponent<LootSpawner>().Spawnloot();
         }
+
+        if (QuestManager.IsInitialized && isDead) {
+            string name = "";
+            if (this.name.Contains("Slime"))
+            {
+                name = "Slime";
+            }
+            else if (this.name.Contains("TurtleShell")) {
+                name = "TurtleShell";
+            }
+
+            QuestManager.Instance.UpdateQuestProgress(name, 1);
+        }
     }
 
     private void Update()

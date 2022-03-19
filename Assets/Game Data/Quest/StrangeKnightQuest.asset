@@ -19,14 +19,12 @@ MonoBehaviour:
   isComplete: 0
   isFinished: 0
   questRequires:
-  - name: Slimes
+  - name: Slime
     requireAmount: 3
     currentAmount: 0
-  - name: Turtle
+  - name: TurtleShell
     requireAmount: 2
     currentAmount: 0
   rewards:
   - itemData: {fileID: 11400000, guid: 066ff71613e04d7479b1e5b3b0b8db4a, type: 2}
     amount: 1
-  - itemData: {fileID: 11400000, guid: 6972c8c9bc4155b4d9d056f98623ed3a, type: 2}
-    amount: 2

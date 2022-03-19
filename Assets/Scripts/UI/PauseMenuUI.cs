@@ -46,6 +46,8 @@ public class PauseMenuUI : MonoBehaviour
         }
         LevelManager.Instance?.SaveData();
 
+        QuestManager.Instance?.SaveQuestSystem();
+
         Debug.Log("saved");
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1;

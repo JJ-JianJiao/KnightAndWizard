@@ -73,6 +73,9 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             InventoryManager.Instance.LoadData();
             LevelManager.Instance.LoadData();
 
+            SaveManager.Instance?.LoadTasks(QuestManager.Instance.tasks, "currentTasks");
+
+
             LevelManager.Instance.SyncLevelState(SceneName);
             if (LevelManager.Instance.activeFriendKnight)
             {
@@ -201,6 +204,9 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             //SaveManager.Instance.playerFileName = cp.fileName;
             InventoryManager.Instance.LoadData();
             LevelManager.Instance.LoadData();
+
+            SaveManager.Instance?.LoadTasks(QuestManager.Instance.tasks, "currentTasks");
+
 
             if (LevelManager.Instance.activeFriendKnight) {
                 var friendKnight = Instantiate(LevelManager.Instance.friendKnightPrefab, player.transform.position + 

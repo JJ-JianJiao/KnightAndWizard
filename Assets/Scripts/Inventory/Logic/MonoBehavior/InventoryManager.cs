@@ -309,4 +309,40 @@ public class InventoryManager : Singleton<InventoryManager>
     }
 
     #endregion
+
+
+    #region Check Quest Items
+
+    public void CheckQuestItemInBag(string questItemName) {
+        foreach (var item in inventoryData.items)
+        {
+            if (item.itemData != null) {
+                if (item.itemData.itemName == questItemName) {
+                    QuestManager.Instance.UpdateQuestProgress(item.itemData.itemName, item.amount);
+                }
+            }
+        }
+
+        foreach (var item in actionData.items)
+        {
+            if (item.itemData != null)
+            {
+                if (item.itemData.itemName == questItemName)
+                {
+                    QuestManager.Instance.UpdateQuestProgress(item.itemData.itemName, item.amount);
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    public InventoryItem QuestItemInBag(ItemData_SO questItem) {
+        return inventoryData.items.Find(i => i.itemData == questItem);
+    }
+
+    public InventoryItem QuestItemInAction(ItemData_SO questItem)
+    {
+        return actionData.items.Find(i => i.itemData == questItem);
+    }
 }

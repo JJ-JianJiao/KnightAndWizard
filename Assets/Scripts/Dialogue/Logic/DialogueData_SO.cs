@@ -32,4 +32,16 @@ public class DialogueData_SO : ScriptableObject
         }
     }
 #endif
+
+    public QuestData_OS GetQuest() {
+        QuestData_OS tempQuest = null;
+        foreach (var piece in dialoguePieces)
+        {
+            if (piece.quest != null) {
+                tempQuest = piece.quest;
+                break;
+            }
+        }
+        return tempQuest;
+    }
 }

@@ -684,6 +684,67 @@ public class SaveManager : Singleton<SaveManager>
 
     }
 
+    public void SaveTasks(Object currentTasks, string name)
+    {
+        var jsonData = JsonUtility.ToJson(currentTasks, true);
+        string fileName = GameManager.Instance.playerStates.fileName;
+
+        string currentPath = DATA_PATH + "\\" + fileName;
+
+        if (!Directory.Exists(currentPath))
+        {
+            Directory.CreateDirectory(currentPath);
+        }
+        string fullPath = Path.Combine(currentPath, name);
+
+
+        FileInfo file = new FileInfo(fullPath);
+        StreamWriter sw = file.CreateText();
+        sw.WriteLine(jsonData);
+        sw.Close();
+
+        //TODO: need do some test and make it clear between Close and Dispose
+        sw.Dispose();
+    }
+
+
+    public void LoadTasks(List<QuestManager.QuestTask> tasks, string name) {
+
+        QuestData_OS quest = ScriptableObject.CreateInstance<QuestData_OS>();
+
+        string fileName = GameManager.Instance.playerStates.fileName;
+
+        string currentPath = DATA_PATH + "\\" + fileName;
+
+        if (!Directory.Exists(currentPath))
+        {
+            Directory.CreateDirectory(currentPath);
+        }
+        string fullPath = Path.Combine(currentPath, "task0");
+
+        if (!File.Exists(fullPath))
+        {
+            Debug.Log("Can not find: " + fullPath);
+            return;
+        }
+
+        StreamReader sr = new StreamReader(fullPath);
+        if (sr == null)
+        {
+            return;
+        }
+
+        string json = sr.ReadToEnd();
+
+        if (json.Length > 0)
+        {
+            JsonUtility.FromJsonOverwrite(json, quest);
+        }
+        sr.Close();
+        sr.Dispose();
+        tasks.Add(new QuestManager.QuestTask(quest));
+    }
+
     public struct GameLevelStates
     {
         public bool activeFriendKnight;

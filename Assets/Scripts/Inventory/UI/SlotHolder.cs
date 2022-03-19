@@ -28,6 +28,9 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler,IPointerEnterHandl
             GameManager.Instance.playerStates.ApplyHealth(itemUI.GetItem().useableItemData.healHealthValue);
 
             itemUI.Bag.items[itemUI.Index].amount--;
+
+            //update quest manager progress
+            QuestManager.Instance.UpdateQuestProgress(itemUI.GetItem().itemName, -1);
         }
         UpdateItem();
     }

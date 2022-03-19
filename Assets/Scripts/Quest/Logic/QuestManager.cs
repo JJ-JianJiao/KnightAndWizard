@@ -9,11 +9,32 @@ public class QuestManager : Singleton<QuestManager>
     public class QuestTask {
         public QuestData_OS questData;
         public bool IsStarted { get { return questData.isStarted; } set { questData.isStarted = value; } }
-        public bool IsComplete { get { return questData.isComplete; } set { questData.isStarted = value; } }
-        public bool IsFinished { get { return questData.isFinished; } set { questData.isStarted = value; } }
+        public bool IsComplete { get { return questData.isComplete; } set { questData.isComplete = value; } }
+        public bool IsFinished { get { return questData.isFinished; } set { questData.isFinished = value; } }
+
+        public QuestTask(QuestData_OS data) {
+            questData = data;
+        }
+
+        public QuestTask() { }
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
     }
 
     public List<QuestTask> tasks = new List<QuestTask>();
+
+    public void SaveQuestSystem() {
+
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            SaveManager.Instance.SaveTasks(tasks[i].questData, "task" + i.ToString());
+        }
+
+    }
+
 
     public bool HaveQuest(QuestData_OS data) {
         if (data != null)
@@ -24,5 +45,19 @@ public class QuestManager : Singleton<QuestManager>
 
     public QuestTask GetTask(QuestData_OS data) {
         return tasks.Find(q => q.questData.questName == data.questName);
+    }
+
+    //enemy die or pick up something
+    public void UpdateQuestProgress(string requireName, int amount) {
+        foreach (var task in tasks)
+        {
+            if (task.IsFinished)
+                continue;
+            var matchTask = task.questData.questRequires.Find(r => r.name == requireName);
+            if (matchTask != null) {
+                matchTask.currentAmount += amount;
+            }
+            task.questData.CheckQuestProgress();
+        }
     }
 }
