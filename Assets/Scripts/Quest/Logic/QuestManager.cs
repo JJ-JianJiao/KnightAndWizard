@@ -28,11 +28,15 @@ public class QuestManager : Singleton<QuestManager>
 
     public void SaveQuestSystem() {
 
-        for (int i = 0; i < tasks.Count; i++)
-        {
-            SaveManager.Instance.SaveTasks(tasks[i].questData, "task" + i.ToString());
-        }
 
+        //var questTasks = ScriptableObject.CreateInstance<QuestTasks_OS>();
+        //for (int i = 0; i < tasks.Count; i++)
+        //{
+        //    questTasks.quests.Add(tasks[i].questData);
+        //}
+        //SaveManager.Instance.SaveTasks(questTasks, "Quests");
+
+        SaveManager.Instance.SaveTasks(tasks, "QuestsInfo");
     }
 
 

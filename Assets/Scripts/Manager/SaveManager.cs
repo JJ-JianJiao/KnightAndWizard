@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Text.RegularExpressions;
 
 
 
@@ -684,6 +685,7 @@ public class SaveManager : Singleton<SaveManager>
 
     }
 
+    //Abandon
     public void SaveTasks(Object currentTasks, string name)
     {
         var jsonData = JsonUtility.ToJson(currentTasks, true);
@@ -707,10 +709,39 @@ public class SaveManager : Singleton<SaveManager>
         sw.Dispose();
     }
 
+    public void SaveTasks(List<QuestManager.QuestTask> tasks, string name)
+    {
+        var jsonData = "";
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            jsonData += JsonUtility.ToJson(tasks[i].questData, true);
+            jsonData += "^EndQuest^";
+        }
+
+        //var jsonData = JsonUtility.ToJson(currentTasks, true);
+        string fileName = GameManager.Instance.playerStates.fileName;
+
+        string currentPath = DATA_PATH + "\\" + fileName;
+
+        if (!Directory.Exists(currentPath))
+        {
+            Directory.CreateDirectory(currentPath);
+        }
+        string fullPath = Path.Combine(currentPath, name);
+
+
+        FileInfo file = new FileInfo(fullPath);
+        StreamWriter sw = file.CreateText();
+        sw.WriteLine(jsonData);
+        sw.Close();
+
+        //TODO: need do some test and make it clear between Close and Dispose
+        sw.Dispose();
+    }
+
 
     public void LoadTasks(List<QuestManager.QuestTask> tasks, string name) {
 
-        QuestData_OS quest = ScriptableObject.CreateInstance<QuestData_OS>();
 
         string fileName = GameManager.Instance.playerStates.fileName;
 
@@ -720,7 +751,7 @@ public class SaveManager : Singleton<SaveManager>
         {
             Directory.CreateDirectory(currentPath);
         }
-        string fullPath = Path.Combine(currentPath, "task0");
+        string fullPath = Path.Combine(currentPath, name);
 
         if (!File.Exists(fullPath))
         {
@@ -736,13 +767,29 @@ public class SaveManager : Singleton<SaveManager>
 
         string json = sr.ReadToEnd();
 
-        if (json.Length > 0)
-        {
-            JsonUtility.FromJsonOverwrite(json, quest);
-        }
         sr.Close();
         sr.Dispose();
-        tasks.Add(new QuestManager.QuestTask(quest));
+        string sliptStr = "^EndQuest^";
+
+        //string test = "aaajsbbbjscccjs";
+
+        //string[] testList = Regex.Split(test, "js", RegexOptions.None);
+
+        if (json.Length > 0)
+        {
+            //string[] jsonList = Regex.Split(json, sliptStr, RegexOptions.IgnoreCase);
+
+            string[] jsonList2 = json.Split(new string[] { "^EndQuest^" }, System.StringSplitOptions.None);
+
+            for (int i = 0; i < jsonList2.Length-1; i++)
+            {
+                var tempTask = ScriptableObject.CreateInstance<QuestData_OS>();
+
+                JsonUtility.FromJsonOverwrite(jsonList2[i], tempTask);
+                tasks.Add(new QuestManager.QuestTask(tempTask));
+            }
+            
+        }
     }
 
     public struct GameLevelStates

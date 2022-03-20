@@ -3,13 +3,13 @@
   <fileName>Player0</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>InnTown</sceneName>
-  <positionX>36.6438332</positionX>
+  <positionX>16.9055462</positionX>
   <positionY>0.08332968</positionY>
-  <positionZ>22.0708275</positionZ>
+  <positionZ>17.0917454</positionZ>
   <rotationX>-0</rotationX>
-  <rotationY>71.43183</rotationY>
+  <rotationY>52.29703</rotationY>
   <rotationZ>-0</rotationZ>
-  <name>Qq</name>
+  <name>Aaaaa</name>
   <maxHealth>100</maxHealth>
   <currentHealth>100</currentHealth>
   <baseDefence>2</baseDefence>

@@ -73,7 +73,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             InventoryManager.Instance.LoadData();
             LevelManager.Instance.LoadData();
 
-            SaveManager.Instance?.LoadTasks(QuestManager.Instance.tasks, "currentTasks");
+            SaveManager.Instance?.LoadTasks(QuestManager.Instance.tasks, "QuestsInfo");
 
 
             LevelManager.Instance.SyncLevelState(SceneName);
@@ -205,7 +205,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
             InventoryManager.Instance.LoadData();
             LevelManager.Instance.LoadData();
 
-            SaveManager.Instance?.LoadTasks(QuestManager.Instance.tasks, "currentTasks");
+            SaveManager.Instance?.LoadTasks(QuestManager.Instance.tasks, "QuestsInfo");
 
 
             if (LevelManager.Instance.activeFriendKnight) {
