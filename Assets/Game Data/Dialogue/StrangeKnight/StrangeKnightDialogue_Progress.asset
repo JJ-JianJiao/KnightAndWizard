@@ -10,27 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e23b6a0af0b19894896e06b1b0079e02, type: 3}
-  m_Name: StrangeKnightDialogue_Complete
+  m_Name: StrangeKnightDialogue_Progress
   m_EditorClassIdentifier: 
   dialoguePieces:
   - id: Piece01
     image: {fileID: 21300000, guid: b9c7406905f3aca468a8a3f333883321, type: 3}
-    text: Have you eradicated those monsters?
+    text: 'Don''t know where those monsters are?
+
+      Exit the inn and follow the
+      path straight ahead, you will find a forest and they are there!'
     quest: {fileID: 0}
     options:
-    - text: Yes. They have been wiped out by me.
-      targetID: Piece02
-      takeQuest: 0
-    - text: Sorry, I need more time.
+    - text: I see. Thanks.
       targetID: 
       takeQuest: 0
-  - id: Piece02
-    image: {fileID: 21300000, guid: b9c7406905f3aca468a8a3f333883321, type: 3}
-    text: 'Great!
-
-      Here is your  reward!'
-    quest: {fileID: 11400000, guid: a39473524dcc1274288591c54478fcde, type: 2}
-    options:
-    - text: Thanks! The sword is great!
-      targetID: 
-      takeQuest: 1
+      needHeal: 0
+      needAlly: 0

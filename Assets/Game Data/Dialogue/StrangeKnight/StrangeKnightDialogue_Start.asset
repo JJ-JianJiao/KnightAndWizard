@@ -21,19 +21,27 @@ MonoBehaviour:
     - text: Not now, I am busy. Bye.
       targetID: 
       takeQuest: 0
+      needHeal: 0
+      needAlly: 0
     - text: Yes. What can I do for you?
       targetID: Piece02
       takeQuest: 0
+      needHeal: 0
+      needAlly: 0
   - id: Piece02
     image: {fileID: 21300000, guid: b9c7406905f3aca468a8a3f333883321, type: 3}
     text: "There are some slime and turtle monsters outside the hotel, Could you
-      help me to wipe them out?\r\n\r\nBecause I am guarding the hotel, I can not
-      leave here. I really want to tear them apart myself.\r"
-    quest: {fileID: 11400000, guid: a39473524dcc1274288591c54478fcde, type: 2}
+      help me to wipe them out?\r\r\nBecause I am guarding the hotel, I can not leave
+      here. I really want to tear them apart myself.\r"
+    quest: {fileID: 11400000, guid: 2df23d0cf0782d746b752f44e22121ae, type: 2}
     options:
     - text: Cool! I will go to punish these monsters.
       targetID: 
       takeQuest: 1
+      needHeal: 0
+      needAlly: 0
     - text: It is too dangerous, I maybe do this later.
       targetID: 
       takeQuest: 0
+      needHeal: 0
+      needAlly: 0

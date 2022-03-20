@@ -15,6 +15,7 @@ public class FriendKnight : MonoBehaviour
 
     public Animator anim;
 
+
     private void Awake()
     {
         isActive = false;
@@ -61,7 +62,7 @@ public class FriendKnight : MonoBehaviour
         if (isActive && followTarget != null && attackTarget == null) {
             agent.stoppingDistance = 3;
             agent.SetDestination(followTarget.transform.position);
-            Debug.Log(Vector3.Distance(transform.position, followTarget.transform.position));
+            //Debug.Log(Vector3.Distance(transform.position, followTarget.transform.position));
         }
 
         if (isActive && attackTarget != null) {
@@ -100,15 +101,23 @@ public class FriendKnight : MonoBehaviour
     private void OnMouseUp()
     {
 
-        if (Vector3.Distance(transform.position, GameManager.Instance.playerStates.transform.position) < 2)
-        {
-            Debug.Log("I will join you, my friend");
-            isActive = true;
-            followTarget = GameManager.Instance.playerStates.gameObject;
-            LevelManager.Instance.activeFriendKnight = true;
-            navMO.enabled = false;
-            agent.enabled = true;
-        }
+        //if (Vector3.Distance(transform.position, GameManager.Instance.playerStates.transform.position) < 2)
+        //{
+        //    Debug.Log("I will join you, my friend");
+        //    isActive = true;
+        //    followTarget = GameManager.Instance.playerStates.gameObject;
+        //    LevelManager.Instance.activeFriendKnight = true;
+        //    navMO.enabled = false;
+        //    agent.enabled = true;
+        //}
+    }
+
+    public void JoinTeam() {
+        isActive = true;
+        followTarget = GameManager.Instance.playerStates.gameObject;
+        LevelManager.Instance.activeFriendKnight = true;
+        navMO.enabled = false;
+        agent.enabled = true;
     }
 
     public void SetFollowTarget(GameObject obj) {

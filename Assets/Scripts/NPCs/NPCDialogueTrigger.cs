@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrangeKnightTrigger : MonoBehaviour
+public class NPCDialogueTrigger : MonoBehaviour
 {
     DialogueController dialogueController;
 

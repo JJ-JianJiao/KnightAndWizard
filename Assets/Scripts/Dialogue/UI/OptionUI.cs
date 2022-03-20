@@ -12,17 +12,27 @@ public class OptionUI : MonoBehaviour
     private string nextPieceID;
     private bool takeQuest;
 
+    private bool needHeal;
+    private bool needAlly;
+
+    private GameObject dialogueObj;
+
     private void Awake()
     {
         currentBtn = GetComponent<Button>();
         currentBtn.onClick.AddListener(OnOptionClicked);
     }
 
-    public void UpdateOption(DialoguePiece piece, DialogueOption option) {
+    public void UpdateOption(DialoguePiece piece, DialogueOption option, GameObject currentObj) {
         dialoguePiece = piece;
         optionText.text = option.text;
         nextPieceID = option.targetID;
         takeQuest = option.takeQuest;
+
+        needHeal = option.needHeal;
+        needAlly = option.needAlly;
+
+        dialogueObj = currentObj;
     }
 
     public void OnOptionClicked() {
@@ -55,10 +65,29 @@ public class OptionUI : MonoBehaviour
         }
 
         if (nextPieceID == "") {
+
+            if (needHeal)
+            {
+                if (dialogueObj != null && dialogueObj.name.Equals("Priest")) {
+                    dialogueObj.GetComponent<Priest>().StartHeal();
+                    //DialogueUI.Instance.dialoguePanel.SetActive(false);
+                }
+            }
+            else if (needAlly) {
+                if (dialogueObj != null && dialogueObj.name.Equals("FriendKnight"))
+                {
+                    dialogueObj.GetComponent<FriendKnight>().JoinTeam();
+                    dialogueObj.GetComponent<DialogueController>().CloseTalkTrigger();
+                    //DialogueUI.Instance.dialoguePanel.SetActive(false);
+                }
+            }
             DialogueUI.Instance.dialoguePanel.SetActive(false);
         }
         else{
             DialogueUI.Instance.UpdateMainDialogue(DialogueUI.Instance.currenData.dialogueIndex[nextPieceID]);
         }
+
     }
+
+
 }

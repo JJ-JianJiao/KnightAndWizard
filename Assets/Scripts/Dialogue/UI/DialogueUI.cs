@@ -19,6 +19,8 @@ public class DialogueUI : Singleton<DialogueUI>
     public DialogueData_SO currenData;
     int currentIndex = 0;
 
+    public GameObject currentObj;
+
     protected override void Awake()
     {
         base.Awake();
@@ -43,9 +45,11 @@ public class DialogueUI : Singleton<DialogueUI>
             dialoguePanel.SetActive(false);
     }
 
-    public void UpdateDialogueData(DialogueData_SO data) {
+    public void UpdateDialogueData(DialogueData_SO data, GameObject dialogueObj) {
         currenData = data;
         currentIndex = 0;
+
+        currentObj = dialogueObj;
     }
 
     public void UpdateMainDialogue(DialoguePiece piece) {
@@ -93,7 +97,7 @@ public class DialogueUI : Singleton<DialogueUI>
         for (int i = 0; i < piece.options.Count; i++)
         {
             var option = Instantiate(optionPrefab, optionPanel);
-            option.GetComponent<OptionUI>().UpdateOption(piece, piece.options[i]);
+            option.GetComponent<OptionUI>().UpdateOption(piece, piece.options[i], currentObj);
         }
     }
 }

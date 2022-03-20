@@ -10,17 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e23b6a0af0b19894896e06b1b0079e02, type: 3}
-  m_Name: StrangeKnightDialogue_Progress
+  m_Name: FriendKnightDialogue
   m_EditorClassIdentifier: 
   dialoguePieces:
   - id: Piece01
-    image: {fileID: 21300000, guid: b9c7406905f3aca468a8a3f333883321, type: 3}
-    text: 'Don''t know where those monsters are?
-
-      Exit the inn and follow the
-      path straight ahead, you will find a forest and they are there!'
+    image: {fileID: 0}
+    text: "Hello, my hero. \nAre you willing to take me on an adventure? I'm too
+      timid to venture out on my own."
     quest: {fileID: 0}
     options:
-    - text: I see. Thanks.
+    - text: Sure. Come on and join me.
       targetID: 
       takeQuest: 0
+      needHeal: 0
+      needAlly: 1
+    - text: Sorry, I like being a lone hero.
+      targetID: 
+      takeQuest: 0
+      needHeal: 0
+      needAlly: 0

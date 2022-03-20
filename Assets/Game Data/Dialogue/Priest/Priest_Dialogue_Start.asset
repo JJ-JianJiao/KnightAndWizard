@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23b6a0af0b19894896e06b1b0079e02, type: 3}
+  m_Name: Priest_Dialogue_Start
+  m_EditorClassIdentifier: 
+  dialoguePieces:
+  - id: Piece01
+    image: {fileID: 21300000, guid: 5af0eab4c09cb0c48ab552924c34197b, type: 3}
+    text: 'Hello, my brave knight - Dog.
+
+      Could you do me a favor?'
+    quest: {fileID: 0}
+    options:
+    - text: Yes. What can I do for you?
+      targetID: Piece02
+      takeQuest: 0
+      needHeal: 0
+      needAlly: 0
+    - text: Please heal me !
+      targetID: 
+      takeQuest: 0
+      needHeal: 1
+      needAlly: 0
+    - text: I am sorry. I am busy now.
+      targetID: 
+      takeQuest: 0
+      needHeal: 0
+      needAlly: 0
+  - id: Piece02
+    image: {fileID: 21300000, guid: 5af0eab4c09cb0c48ab552924c34197b, type: 3}
+    text: 'I need five mushroom to make lunch for pool people.
+
+      Could you help
+      me to collect five mushroom?'
+    quest: {fileID: 11400000, guid: a39473524dcc1274288591c54478fcde, type: 2}
+    options:
+    - text: Sure. I will give you as soon as possible.
+      targetID: 
+      takeQuest: 1
+      needHeal: 0
+      needAlly: 0
+    - text: My back is hurt. I can not help you. Sorry.
+      targetID: 
+      takeQuest: 0
+      needHeal: 1
+      needAlly: 0

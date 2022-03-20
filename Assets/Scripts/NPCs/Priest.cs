@@ -11,10 +11,14 @@ public class Priest : MonoBehaviour
     private void OnMouseUp()
     {
 
-        if (Vector3.Distance(transform.position, GameManager.Instance.playerStates.transform.position) < 2) {
-            Debug.Log("Please heal me, priest!");
-            StartCoroutine(HealPlayer());
-        }
+        //if (Vector3.Distance(transform.position, GameManager.Instance.playerStates.transform.position) < 2) {
+        //    Debug.Log("Please heal me, priest!");
+        //    StartCoroutine(HealPlayer());
+        //}
+    }
+
+    public void StartHeal() {
+        StartCoroutine("HealPlayer");
     }
 
     IEnumerator HealPlayer()
