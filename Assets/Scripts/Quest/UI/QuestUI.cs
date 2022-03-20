@@ -16,8 +16,10 @@ public class QuestUI : Singleton<QuestUI>
 
     [Header("Text Content")]
     public Text questContentText;
+    public Text questContentTitle;
 
     [Header("Requirement")]
+    public RectTransform QuestContentTrans;
     public RectTransform requireTransform;
     public QuestRequirement requirement;
 
@@ -30,6 +32,7 @@ public class QuestUI : Singleton<QuestUI>
         if (Input.GetKeyDown(KeyCode.L)) {
             isOpen = !isOpen;
             questPanel.SetActive(isOpen);
+            questContentTitle.text = string.Empty;
             questContentText.text = string.Empty;
             //display quest list board
             SetupQuestList();
@@ -64,6 +67,8 @@ public class QuestUI : Singleton<QuestUI>
     }
 
     public void SetupRequireList(QuestData_OS questData) {
+
+        questContentTitle.text = questData.questName;
 
         questContentText.text = questData.description;
 

@@ -28,7 +28,19 @@ public class QuestNameBtn : MonoBehaviour
             QuestUI.Instance.SetupRewardItem(item.itemData, item.amount);
 
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(QuestUI.Instance.QuestContentTrans.GetComponent<RectTransform>());
+
+        //StartCoroutine("UpdateLayout", QuestUI.Instance.QuestContentTrans.GetComponent<RectTransform>());
     }
+
+
+    IEnumerator UpdateLayout(RectTransform rect)
+    {
+        yield return new WaitForEndOfFrame();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+    }
+
 
     public void SetupNameBtn(QuestData_OS questData) {
         currentData = questData;
