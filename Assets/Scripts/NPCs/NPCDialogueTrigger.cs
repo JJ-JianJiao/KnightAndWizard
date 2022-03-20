@@ -24,7 +24,7 @@ public class NPCDialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             DialogueUI.Instance.dialoguePanel.SetActive(false);
-            dialogueController.canTalk = true;
+            dialogueController.canTalk = false;
         }
     }
 }
