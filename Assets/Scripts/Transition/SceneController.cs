@@ -57,6 +57,7 @@ public class SceneController : Singleton<SceneController>, IEndGameObsever
 
         LevelManager.Instance.SaveData();
 
+        QuestManager.Instance?.SaveQuestSystem();
 
         SceneFader fade = Instantiate(sceneFaderPrefab);
 

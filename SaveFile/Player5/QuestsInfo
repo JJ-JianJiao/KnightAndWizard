@@ -1,0 +1,54 @@
+{
+    "questName": "Punish some monsters",
+    "description": "Strange Hero wants me to kill three slimes and two turtles. He will give me some rewards when I finish the quest.",
+    "isStarted": true,
+    "isComplete": true,
+    "isFinished": true,
+    "questRequires": [
+        {
+            "name": "Slime",
+            "requireAmount": 3,
+            "currentAmount": 3
+        },
+        {
+            "name": "TurtleShell",
+            "requireAmount": 2,
+            "currentAmount": 3
+        }
+    ],
+    "rewards": [
+        {
+            "itemData": {
+                "instanceID": 27754
+            },
+            "amount": 1
+        }
+    ]
+}^EndQuest^{
+    "questName": "Collect Mushrooms",
+    "description": "The FriendKnight will give me a legend shiled if I can collect 5 mushrooms!",
+    "isStarted": true,
+    "isComplete": true,
+    "isFinished": true,
+    "questRequires": [
+        {
+            "name": "Heal Mushroom",
+            "requireAmount": 5,
+            "currentAmount": 5
+        }
+    ],
+    "rewards": [
+        {
+            "itemData": {
+                "instanceID": 27744
+            },
+            "amount": 1
+        },
+        {
+            "itemData": {
+                "instanceID": 27748
+            },
+            "amount": -5
+        }
+    ]
+}^EndQuest^
