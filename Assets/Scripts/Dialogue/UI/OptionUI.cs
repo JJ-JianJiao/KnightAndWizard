@@ -50,6 +50,7 @@ public class OptionUI : MonoBehaviour
                     if (QuestManager.Instance.GetTask(newTask.questData).IsComplete) {
                         newTask.questData.GiveRewards();
                         QuestManager.Instance.GetTask(newTask.questData).IsFinished = true;
+                        AudioManager.Instance.PlaySfx("Quest Complete");
                     }
                 }
                 else {

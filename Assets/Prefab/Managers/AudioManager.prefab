@@ -45,7 +45,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds: []
-  effects: []
+  effects:
+  - name: Recover
+    clip: {fileID: 8300000, guid: 612e0cc936968114bb009204eb0bd4b3, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: TwoSword
+    clip: {fileID: 8300000, guid: 74c9a70de55f8f641b32a6c92978ebfe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: OneSword
+    clip: {fileID: 8300000, guid: 11cbf13e8a874c543b3734f5e891bf4f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: Punch
+    clip: {fileID: 8300000, guid: 5434bb2e4d33daf4eb7691c9bf7460e8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: LevelUp
+    clip: {fileID: 8300000, guid: 1a4015cb512e08e49a5e5fc9a6d86230, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: Quest Complete
+    clip: {fileID: 8300000, guid: be0f4ebfbe59f1e42bfe6b9cf0b7c180, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
   BGM: {fileID: 388317813}
   bgmMixerGroup: {fileID: -4153069930221843916, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
   soundEffectsGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}

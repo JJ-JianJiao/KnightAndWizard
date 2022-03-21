@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class PauseMenuUI : MonoBehaviour
 {
+    //public static PauseMenuUI instance;
+
     public GameObject pauseMenuPanel;
     public Button saveBtn;
     public Button loadBtn;
@@ -25,18 +28,31 @@ public class PauseMenuUI : MonoBehaviour
 
     private void Awake()
     {
+        //if (instance != null)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    instance = this;
+        //}
+        //DontDestroyOnLoad(gameObject);
+
         saveBtn.onClick.AddListener(SaveGameData);
         loadBtn.onClick.AddListener(LoadGameData);
         backToMainBtn.onClick.AddListener(BackToMain);
         audioBtn.onClick.AddListener(AuidoOnClick);
         audioBackButton.onClick.AddListener(AudioBackButtonOnClick);
 
+        AudioManager.Instance.SetMusicAndSfx();
+        bgmSlider.value = AudioManager.Instance.musicSoundValue;
+        effectsSlider.value = AudioManager.Instance.sfxSoundValue;
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main") {
             if (pauseMenuPanel.activeInHierarchy)
             {
                 pauseMenuPanel.SetActive(false);
@@ -51,7 +67,7 @@ public class PauseMenuUI : MonoBehaviour
                 Time.timeScale = 0;
                 //pause.TransitionTo(0.01f);
             }
-            LowPass();
+            //LowPass();
         }
     }
 
@@ -111,7 +127,7 @@ public class PauseMenuUI : MonoBehaviour
     private void BackToMain()
     {
         Time.timeScale = 1;
-
+        pauseMenuPanel.SetActive(false);
         SceneController.Instance?.TransitionToMain();
     }
 
@@ -124,5 +140,19 @@ public class PauseMenuUI : MonoBehaviour
     private void AudioBackButtonOnClick()
     {
         audioPanel.SetActive(false);
+    }
+
+    public void SetMusicLvl(float musicLevel)
+    {
+        AudioManager.Instance.myAudioMixer.SetFloat("musicVol", musicLevel);
+        //bgmMixerGroup.audioMixer.SetFloat("BGM", musicLevel);
+        AudioManager.Instance.musicSoundValue = musicLevel;
+    }
+
+    public void SetSfxLvl(float sfxLevel)
+    {
+        AudioManager.Instance.myAudioMixer.SetFloat("sfxVol", sfxLevel);
+        //soundEffectsGroup.audioMixer.SetFloat("SoundEffect", sfxLevel);
+        AudioManager.Instance.sfxSoundValue = sfxLevel;
     }
 }

@@ -143,5 +143,22 @@ public class PlayerController : MonoBehaviour
             var targetStats = attackTarget.GetComponent<CharacterStats>();
             targetStats.TakeDamage(characterStats, targetStats);
         }
+        if(InventoryManager.Instance.equipmentData.items[0] != null)
+        {
+            if (InventoryManager.Instance.equipmentData.items[0].itemData == null)
+                AudioManager.Instance.PlaySfx("Punch");
+            else {
+                if (InventoryManager.Instance.equipmentData.items[0].itemData.itemName == "Huge Sword")
+                {
+                    AudioManager.Instance.PlaySfx("TwoSword");
+                }
+                else if (InventoryManager.Instance.equipmentData.items[0].itemData.itemName == "Sword")
+                {
+                    AudioManager.Instance.PlaySfx("OneSword");
+                }
+            }
+
+        }
+
     }
 }

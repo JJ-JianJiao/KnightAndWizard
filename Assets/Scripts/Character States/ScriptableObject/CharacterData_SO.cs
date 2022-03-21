@@ -49,5 +49,7 @@ public class CharacterData_SO : ScriptableObject
         currentHealth = maxHealth;
 
         Debug.Log("Level up!" + currentLevel + "Max Health" + maxHealth);
+
+        AudioManager.Instance.PlaySfx("LevelUp");
     }
 }

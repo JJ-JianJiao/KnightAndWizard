@@ -25,6 +25,7 @@ public class Sound {
     public bool isLoop;
 
     public AudioMixerGroup audioGroup;
+
 }
 
 public class AudioManager : Singleton<AudioManager>
@@ -40,6 +41,10 @@ public class AudioManager : Singleton<AudioManager>
 
 
     public AudioMixer myAudioMixer;
+
+
+    public float musicSoundValue;
+    public float sfxSoundValue;
 
     protected override void Awake()
     {
@@ -93,11 +98,19 @@ public class AudioManager : Singleton<AudioManager>
     public void SetMusicLvl(float musicLevel) {
         myAudioMixer.SetFloat("musicVol", musicLevel);
         //bgmMixerGroup.audioMixer.SetFloat("BGM", musicLevel);
+        musicSoundValue = musicLevel;
     }
 
     public void SetSfxLvl(float sfxLevel)
     {
         myAudioMixer.SetFloat("sfxVol", sfxLevel);
+        sfxSoundValue = sfxLevel;
         //soundEffectsGroup.audioMixer.SetFloat("SoundEffect", sfxLevel);
+    }
+
+    public void SetMusicAndSfx() {
+        myAudioMixer.SetFloat("musicVol", musicSoundValue);
+        myAudioMixer.SetFloat("sfxVol", sfxSoundValue);
+
     }
 }
