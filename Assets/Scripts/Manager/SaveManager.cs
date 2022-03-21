@@ -639,6 +639,7 @@ public class SaveManager : Singleton<SaveManager>
         states.isDeadGrunt3 = levelManager.isDeadGrunt3;
         states.isDeadGolem1 = levelManager.isDeadGolem1;
         states.isChestPickUp = levelManager.isChestPickUp;
+        states.isBigBrotherSaved = levelManager.isBigBrotherSaved;
 
         string fileName = GameManager.Instance.playerStates.fileName;
         string currentPath = DATA_PATH + "\\" + fileName;
@@ -682,7 +683,7 @@ public class SaveManager : Singleton<SaveManager>
         levelManager.isDeadGrunt3 = states.isDeadGrunt3;
         levelManager.isDeadGolem1 = states.isDeadGolem1;
         levelManager.isChestPickUp = states.isChestPickUp;
-
+        states.isBigBrotherSaved = levelManager.isBigBrotherSaved;
     }
 
     //Abandon
@@ -812,6 +813,7 @@ public class SaveManager : Singleton<SaveManager>
         public bool isDeadGolem1;
 
         public bool isChestPickUp;
+        public bool isBigBrotherSaved;
     }
 }
 

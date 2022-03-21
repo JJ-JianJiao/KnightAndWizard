@@ -43,6 +43,16 @@ public class BigBrother : MonoBehaviour
         isDead = true;
     }
 
+    private void Start()
+    {
+        if (LevelManager.Instance) {
+            if (LevelManager.Instance.isBigBrotherSaved) {
+                gameObject.SetActive(false);
+            }
+        
+        }
+    }
+
     internal void AtDestinationPoint(Transform dest)
     {
         destinationPoint = dest;

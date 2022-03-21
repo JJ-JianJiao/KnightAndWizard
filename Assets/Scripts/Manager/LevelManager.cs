@@ -25,6 +25,8 @@ public class LevelManager : Singleton<LevelManager>
 
     public bool isChestPickUp;
 
+    public bool isBigBrotherSaved;
+
     protected override void Awake()
     {
         base.Awake();
@@ -71,6 +73,8 @@ public class LevelManager : Singleton<LevelManager>
         isDeadGolem1 = false;
 
         isChestPickUp = false;
+
+        isBigBrotherSaved = false;
     }
 
     internal void SaveData()

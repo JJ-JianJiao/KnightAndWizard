@@ -11,7 +11,7 @@ public class BigBrotherDestinationTrigger : MonoBehaviour
         if (other.name.Contains("BigBrother") && other.CompareTag("NPC")) {
             other.GetComponent<BigBrother>().AtDestinationPoint(destination);
             QuestManager.Instance.FinishQuest("Save Big Brother");
-
+            //LevelManager.Instance.isBigBrotherSaved = true;
         }
     }
 }

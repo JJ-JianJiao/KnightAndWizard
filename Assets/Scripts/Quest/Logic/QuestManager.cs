@@ -30,6 +30,7 @@ public class QuestManager : Singleton<QuestManager>
                 for (int j = 0; j < tasks[i].questData.questRequires.Count; j++)
                 {
                     tasks[i].questData.questRequires[j].currentAmount = tasks[i].questData.questRequires[j].requireAmount;
+                    LevelManager.Instance.isBigBrotherSaved = true;
                 }
             }
         }
