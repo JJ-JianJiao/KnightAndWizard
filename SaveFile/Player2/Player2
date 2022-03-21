@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <fileName>Player2</fileName>
+  <characterClass>Knight</characterClass>
+  <sceneName>MainLand</sceneName>
+  <positionX>46.4105568</positionX>
+  <positionY>0.0333344936</positionY>
+  <positionZ>16.0518856</positionZ>
+  <rotationX>-0</rotationX>
+  <rotationY>73.71809</rotationY>
+  <rotationZ>-0</rotationZ>
+  <name>Aaad</name>
+  <maxHealth>100</maxHealth>
+  <currentHealth>100</currentHealth>
+  <baseDefence>2</baseDefence>
+  <currentDefence>2</currentDefence>
+  <currentLevel>1</currentLevel>
+  <maxLevel>30</maxLevel>
+  <baseExp>50</baseExp>
+  <currentExp>0</currentExp>
+  <levelBuff>0.1</levelBuff>
+  <attackRange>2.2</attackRange>
+  <skillRange>0</skillRange>
+  <coolDown>0.7</coolDown>
+  <criticalMultiplier>2</criticalMultiplier>
+  <criticalChance>0.2</criticalChance>
+  <minDamage>4</minDamage>
+  <maxDamage>6</maxDamage>
+  <stamina>0</stamina>
+  <strength>0</strength>
+  <agility>0</agility>
+  <intellect>0</intellect>
+</CharacterProfile>

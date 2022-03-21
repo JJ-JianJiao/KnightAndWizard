@@ -14,11 +14,13 @@ public class PlayerController : MonoBehaviour
     private float lastAttackTime;
     private CharacterStats characterStats;
     private bool isDead;
+    private bool isDeadPlayed;
 
     private float stopDistance;
 
     private void Awake()
     {
+        isDeadPlayed = false;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
@@ -56,7 +58,13 @@ public class PlayerController : MonoBehaviour
 
         //player is dead, notify all enemies
         if (isDead)
+        {
             GameManager.Instance.NotifyObservers();
+            if (!isDeadPlayed) {
+                AudioManager.Instance.PlaySfx("PlayerDie");
+                isDeadPlayed = true;
+            }
+        }
 
         SwitchAnimation();
         lastAttackTime -= Time.deltaTime;

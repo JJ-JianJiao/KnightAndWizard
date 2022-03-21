@@ -88,10 +88,19 @@ MonoBehaviour:
     source: {fileID: 0}
     isLoop: 0
     audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: PlayerDie
+    clip: {fileID: 8300000, guid: 4419e5f0dd34388478db550efa3e4252, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
   BGM: {fileID: 388317813}
   bgmMixerGroup: {fileID: -4153069930221843916, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
   soundEffectsGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
   myAudioMixer: {fileID: 24100000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  musicSoundValue: 0
+  sfxSoundValue: 0
 --- !u!82 &388317813
 AudioSource:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class PauseMenuUI : MonoBehaviour
     public AudioMixerSnapshot pause;
     public AudioMixerSnapshot unpause;
 
+    public bool backToMainIsClicked;
+
     private void Awake()
     {
         //if (instance != null)
@@ -47,12 +49,14 @@ public class PauseMenuUI : MonoBehaviour
         AudioManager.Instance.SetMusicAndSfx();
         bgmSlider.value = AudioManager.Instance.musicSoundValue;
         effectsSlider.value = AudioManager.Instance.sfxSoundValue;
+
+        backToMainIsClicked = false;
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main") {
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main" && !backToMainIsClicked) {
             if (pauseMenuPanel.activeInHierarchy)
             {
                 pauseMenuPanel.SetActive(false);
@@ -126,6 +130,7 @@ public class PauseMenuUI : MonoBehaviour
 
     private void BackToMain()
     {
+        backToMainIsClicked = true;
         Time.timeScale = 1;
         pauseMenuPanel.SetActive(false);
         SceneController.Instance?.TransitionToMain();
