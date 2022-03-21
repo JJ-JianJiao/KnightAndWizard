@@ -2,13 +2,13 @@
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <fileName>Player5</fileName>
   <characterClass>Knight</characterClass>
-  <sceneName>Dungeons01</sceneName>
-  <positionX>20.4108124</positionX>
-  <positionY>0.08224958</positionY>
-  <positionZ>-16.9334183</positionZ>
+  <sceneName>MainLand</sceneName>
+  <positionX>53.9428864</positionX>
+  <positionY>0.0333344936</positionY>
+  <positionZ>34.8805275</positionZ>
   <rotationX>-0</rotationX>
-  <rotationY>144.383041</rotationY>
-  <rotationZ>0</rotationZ>
+  <rotationY>31.62759</rotationY>
+  <rotationZ>-0</rotationZ>
   <name>Adaq</name>
   <maxHealth>171</maxHealth>
   <currentHealth>171</currentHealth>

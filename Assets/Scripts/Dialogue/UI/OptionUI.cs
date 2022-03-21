@@ -80,6 +80,12 @@ public class OptionUI : MonoBehaviour
                     dialogueObj.GetComponent<DialogueController>().CloseTalkTrigger();
                     //DialogueUI.Instance.dialoguePanel.SetActive(false);
                 }
+                else if (dialogueObj != null && dialogueObj.name.Equals("BigBrother"))
+                {
+                    dialogueObj.GetComponent<BigBrother>().JoinTeam();
+                    dialogueObj.GetComponent<DialogueController>().CloseTalkTrigger();
+                    //DialogueUI.Instance.dialoguePanel.SetActive(false);
+                }
             }
             DialogueUI.Instance.dialoguePanel.SetActive(false);
         }

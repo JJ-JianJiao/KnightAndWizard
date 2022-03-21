@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using System;
 
 public class QuestManager : Singleton<QuestManager>
 {
@@ -18,6 +19,20 @@ public class QuestManager : Singleton<QuestManager>
         }
 
         public QuestTask() { }
+    }
+
+    internal void FinishQuest(string name)
+    {
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            if (tasks[i].questData.questName.Contains(name)) {
+                tasks[i].questData.isComplete = true;
+                for (int j = 0; j < tasks[i].questData.questRequires.Count; j++)
+                {
+                    tasks[i].questData.questRequires[j].currentAmount = tasks[i].questData.questRequires[j].requireAmount;
+                }
+            }
+        }
     }
 
     protected override void Awake()
