@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif  
 
 public class MainMenu : MonoBehaviour
 {
@@ -33,8 +38,6 @@ public class MainMenu : MonoBehaviour
         //director = FindObjectOfType<PlayableDirector>();
         director.stopped += NewGame;
         //selectCharactersDirector.stopped += NewGame;
-
-
     }
 
 
@@ -45,8 +48,12 @@ public class MainMenu : MonoBehaviour
     }
 
     void QuitGame() {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
         Application.Quit();
         Debug.Log("Quit game");
+#endif
     }
 
     void NewGame(PlayableDirector obj) {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PauseMenuUI : MonoBehaviour
 {
@@ -10,14 +11,27 @@ public class PauseMenuUI : MonoBehaviour
     public Button saveBtn;
     public Button loadBtn;
     public Button backToMainBtn;
+    public Button audioBtn;
+
+    public GameObject audioPanel;
+
+    [Header("AudioPanel")]
+    public Slider bgmSlider;
+    public Slider effectsSlider;
+    public Button audioBackButton;
+
+    public AudioMixerSnapshot pause;
+    public AudioMixerSnapshot unpause;
 
     private void Awake()
     {
         saveBtn.onClick.AddListener(SaveGameData);
         loadBtn.onClick.AddListener(LoadGameData);
         backToMainBtn.onClick.AddListener(BackToMain);
-    }
+        audioBtn.onClick.AddListener(AuidoOnClick);
+        audioBackButton.onClick.AddListener(AudioBackButtonOnClick);
 
+    }
 
 
     private void Update()
@@ -26,15 +40,35 @@ public class PauseMenuUI : MonoBehaviour
             if (pauseMenuPanel.activeInHierarchy)
             {
                 pauseMenuPanel.SetActive(false);
+                audioPanel.SetActive(false);
+
                 Time.timeScale = 1;
+                //unpause.TransitionTo(0.01f);
             }
             else {
                 pauseMenuPanel.SetActive(true);
+
                 Time.timeScale = 0;
+                //pause.TransitionTo(0.01f);
             }
+            LowPass();
         }
     }
 
+    void LowPass() {
+        if (Time.timeScale == 0)
+        {
+            //pause.TransitionTo(0.01f);
+            pause.TransitionTo(0.001f);
+
+        }
+        else {
+            //unpause.TransitionTo(0.01f);
+            unpause.TransitionTo(0.001f);
+
+
+        }
+    }
 
     private void SaveGameData()
     {
@@ -77,6 +111,18 @@ public class PauseMenuUI : MonoBehaviour
     private void BackToMain()
     {
         Time.timeScale = 1;
+
         SceneController.Instance?.TransitionToMain();
+    }
+
+    private void AuidoOnClick()
+    {
+        audioPanel.SetActive(true);
+    }
+
+
+    private void AudioBackButtonOnClick()
+    {
+        audioPanel.SetActive(false);
     }
 }

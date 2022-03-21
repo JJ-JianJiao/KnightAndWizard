@@ -8,6 +8,7 @@ public class Priest : MonoBehaviour
 
     public SceneFader sceneFaderPrefab;
 
+
     private void OnMouseUp()
     {
 
@@ -23,6 +24,7 @@ public class Priest : MonoBehaviour
 
     IEnumerator HealPlayer()
     {
+        AudioManager.Instance.PlaySfx("Recover");
         SceneFader fade = Instantiate(sceneFaderPrefab);
 
         yield return StartCoroutine(fade.FadeOut(2f));
