@@ -2,30 +2,30 @@
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <fileName>Player5</fileName>
   <characterClass>Knight</characterClass>
-  <sceneName>MainLand</sceneName>
-  <positionX>57.14982</positionX>
-  <positionY>0.0333344936</positionY>
-  <positionZ>17.6192513</positionZ>
+  <sceneName>Dungeons01</sceneName>
+  <positionX>20.4108124</positionX>
+  <positionY>0.08224958</positionY>
+  <positionZ>-16.9334183</positionZ>
   <rotationX>-0</rotationX>
-  <rotationY>167.2316</rotationY>
+  <rotationY>144.383041</rotationY>
   <rotationZ>0</rotationZ>
   <name>Adaq</name>
   <maxHealth>171</maxHealth>
-  <currentHealth>157</currentHealth>
+  <currentHealth>171</currentHealth>
   <baseDefence>2</baseDefence>
   <currentDefence>2</currentDefence>
   <currentLevel>4</currentLevel>
   <maxLevel>30</maxLevel>
   <baseExp>531</baseExp>
-  <currentExp>295</currentExp>
+  <currentExp>490</currentExp>
   <levelBuff>0.1</levelBuff>
-  <attackRange>1.8</attackRange>
+  <attackRange>2.2</attackRange>
   <skillRange>0</skillRange>
-  <coolDown>1</coolDown>
+  <coolDown>1.8</coolDown>
   <criticalMultiplier>2</criticalMultiplier>
-  <criticalChance>0.2</criticalChance>
-  <minDamage>21</minDamage>
-  <maxDamage>23</maxDamage>
+  <criticalChance>0.35</criticalChance>
+  <minDamage>30</minDamage>
+  <maxDamage>46</maxDamage>
   <stamina>0</stamina>
   <strength>0</strength>
   <agility>0</agility>

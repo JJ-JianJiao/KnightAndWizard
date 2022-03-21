@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2062bac83fc3634fa099d65a4a0d8b6, type: 3}
+  m_Name: SaveBigBrother
+  m_EditorClassIdentifier: 
+  questName: Save Big Brother
+  description: 'Yellow boy''s brother got lost in the foggy forest. It is full of
+    various monsters. The yellow boy was very anxious.
+
+    There is no time to delay,
+    I have to hurry to save people.'
+  isStarted: 0
+  isComplete: 0
+  isFinished: 0
+  questRequires:
+  - name: Big Brother
+    requireAmount: 1
+    currentAmount: 0
+  rewards:
+  - itemData: {fileID: 11400000, guid: 066ff71613e04d7479b1e5b3b0b8db4a, type: 2}
+    amount: 1
