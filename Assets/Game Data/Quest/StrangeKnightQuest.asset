@@ -26,5 +26,5 @@ MonoBehaviour:
     requireAmount: 2
     currentAmount: 0
   rewards:
-  - itemData: {fileID: 11400000, guid: cf458ca4523712447ac5953fa992af24, type: 2}
+  - itemData: {fileID: 11400000, guid: d166cf13af696fa4f930a62db082d84a, type: 2}
     amount: 1

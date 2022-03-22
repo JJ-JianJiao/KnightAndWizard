@@ -212,6 +212,10 @@ PrefabInstance:
       value: HealMushroom (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -465,6 +469,10 @@ PrefabInstance:
     - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
       propertyPath: m_Name
       value: HealMushroom (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
       propertyPath: m_TagString
@@ -1529,7 +1537,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.10490223, y: -0.47995764, z: 0.05793381, w: 0.86906844}
+  m_LocalRotation: {x: 0.10491823, y: -0.47971594, z: 0.05790482, w: 0.8692019}
   m_LocalPosition: {x: 12.8509, y: 5.78, z: -1.4899879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1743,7 +1751,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-913950
+  m_Name: pb_Mesh-23528
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2764,6 +2772,10 @@ PrefabInstance:
       value: HealMushroom (4)
       objectReference: {fileID: 0}
     - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -3110,6 +3122,10 @@ PrefabInstance:
       value: HealMushroom
       objectReference: {fileID: 0}
     - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644033179822043727, guid: 3cd2aa292ede9824e8666483b02e5b2f, type: 3}
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
@@ -3169,6 +3185,10 @@ PrefabInstance:
     - target: {fileID: 1645192840056840576, guid: 5ccdde9cdacbbc34a841599902ba7d82, type: 3}
       propertyPath: m_Name
       value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645192840056840576, guid: 5ccdde9cdacbbc34a841599902ba7d82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1645192840057011616, guid: 5ccdde9cdacbbc34a841599902ba7d82, type: 3}
       propertyPath: m_RootOrder
@@ -4832,7 +4852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780173594405696921, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8701214
+      value: 0.87012136
       objectReference: {fileID: 0}
     - target: {fileID: 7780173594405696921, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4844,7 +4864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780173594405696921, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.059731334
+      value: 0.05973134
       objectReference: {fileID: 0}
     - target: {fileID: 7780173595324921455, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4856,19 +4876,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780173595324921455, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8690685
+      value: 0.86920184
       objectReference: {fileID: 0}
     - target: {fileID: 7780173595324921455, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.104902126
+      value: 0.104918234
       objectReference: {fileID: 0}
     - target: {fileID: 7780173595324921455, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.47995758
+      value: -0.4797159
       objectReference: {fileID: 0}
     - target: {fileID: 7780173595324921455, guid: d40fe37fb2903b949b173bac970774c7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.05793394
+      value: 0.057904787
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d40fe37fb2903b949b173bac970774c7, type: 3}

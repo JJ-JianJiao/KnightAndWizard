@@ -4,7 +4,13 @@
             "itemData": {
                 "instanceID": 22580
             },
-            "amount": 6
+            "amount": 5
+        },
+        {
+            "itemData": {
+                "instanceID": 22348
+            },
+            "amount": 1
         },
         {
             "itemData": {
@@ -20,15 +26,9 @@
         },
         {
             "itemData": {
-                "instanceID": 0
+                "instanceID": 22348
             },
-            "amount": 0
-        },
-        {
-            "itemData": {
-                "instanceID": 0
-            },
-            "amount": 0
+            "amount": 1
         },
         {
             "itemData": {

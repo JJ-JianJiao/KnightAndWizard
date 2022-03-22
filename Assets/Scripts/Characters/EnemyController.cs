@@ -107,6 +107,21 @@ public class EnemyController : MonoBehaviour, IEndGameObsever
             isDead = true;
             if (!isBoardcastStates)
             {
+                if (gameObject.name.Contains("Slime")) {
+                    AudioManager.Instance.PlaySfx("SlimerDie");
+                }
+                else if (gameObject.name.Contains("Turtle"))
+                {
+                    AudioManager.Instance.PlaySfx("TurtleDie");
+                }
+                else if (gameObject.name.Contains("Grunt"))
+                {
+                    AudioManager.Instance.PlaySfx("GruntDie");
+                }
+                else if (gameObject.name.Contains("Golem"))
+                {
+                    AudioManager.Instance.PlaySfx("GolemDie");
+                }
                 isBoardcastStates = true;
                 RecordStates(gameObject.name);
             }

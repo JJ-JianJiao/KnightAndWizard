@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player2</fileName>
+  <fileName>Player4</fileName>
   <characterClass>Knight</characterClass>
-  <sceneName>MainLand</sceneName>
-  <positionX>46.4105568</positionX>
-  <positionY>0.0333344936</positionY>
-  <positionZ>16.0518856</positionZ>
-  <rotationX>-0</rotationX>
-  <rotationY>73.71809</rotationY>
-  <rotationZ>-0</rotationZ>
-  <name>Aaad</name>
+  <sceneName>InnTown</sceneName>
+  <positionX>-1</positionX>
+  <positionY>-1</positionY>
+  <positionZ>-1</positionZ>
+  <rotationX>-1</rotationX>
+  <rotationY>-1</rotationY>
+  <rotationZ>-1</rotationZ>
+  <name>Aaa</name>
   <maxHealth>100</maxHealth>
   <currentHealth>100</currentHealth>
   <baseDefence>2</baseDefence>
@@ -26,8 +26,8 @@
   <criticalChance>0.2</criticalChance>
   <minDamage>4</minDamage>
   <maxDamage>6</maxDamage>
-  <stamina>0</stamina>
-  <strength>0</strength>
+  <stamina>5</stamina>
+  <strength>4</strength>
   <agility>0</agility>
   <intellect>0</intellect>
 </CharacterProfile>

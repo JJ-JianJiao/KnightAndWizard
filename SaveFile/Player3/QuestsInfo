@@ -1,0 +1,75 @@
+{
+    "questName": "Punish some monsters",
+    "description": "Strange Hero wants me to kill three slimes and two turtles. He will give me some rewards when I finish the quest.",
+    "isStarted": true,
+    "isComplete": true,
+    "isFinished": true,
+    "questRequires": [
+        {
+            "name": "Slime",
+            "requireAmount": 3,
+            "currentAmount": 4
+        },
+        {
+            "name": "TurtleShell",
+            "requireAmount": 2,
+            "currentAmount": 3
+        }
+    ],
+    "rewards": [
+        {
+            "itemData": {
+                "instanceID": 22830
+            },
+            "amount": 1
+        }
+    ]
+}^EndQuest^{
+    "questName": "Collect Mushrooms",
+    "description": "The FriendKnight will give me a legend shiled if I can collect 5 mushrooms!",
+    "isStarted": true,
+    "isComplete": true,
+    "isFinished": true,
+    "questRequires": [
+        {
+            "name": "Heal Mushroom",
+            "requireAmount": 5,
+            "currentAmount": 10
+        }
+    ],
+    "rewards": [
+        {
+            "itemData": {
+                "instanceID": 22082
+            },
+            "amount": 1
+        },
+        {
+            "itemData": {
+                "instanceID": 22580
+            },
+            "amount": -5
+        }
+    ]
+}^EndQuest^{
+    "questName": "Save Big Brother",
+    "description": "Yellow boy's brother got lost in the foggy forest. It is full of various monsters. The yellow boy was very anxious.\nThere is no time to delay, I have to hurry to save people.",
+    "isStarted": true,
+    "isComplete": true,
+    "isFinished": true,
+    "questRequires": [
+        {
+            "name": "Big Brother",
+            "requireAmount": 1,
+            "currentAmount": 1
+        }
+    ],
+    "rewards": [
+        {
+            "itemData": {
+                "instanceID": 22348
+            },
+            "amount": 1
+        }
+    ]
+}^EndQuest^

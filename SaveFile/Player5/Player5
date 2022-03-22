@@ -1,31 +1,31 @@
 <?xml version="1.0"?>
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileName>Player1</fileName>
+  <fileName>Player5</fileName>
   <characterClass>Knight</characterClass>
-  <sceneName>Dungeons01</sceneName>
-  <positionX>19.1914482</positionX>
-  <positionY>0.0951114744</positionY>
-  <positionZ>-17.35518</positionZ>
+  <sceneName>MainLand</sceneName>
+  <positionX>37.8212547</positionX>
+  <positionY>0.0333344936</positionY>
+  <positionZ>12.7454615</positionZ>
   <rotationX>-0</rotationX>
-  <rotationY>147.070648</rotationY>
-  <rotationZ>-0</rotationZ>
-  <name>Zz</name>
+  <rotationY>244.009766</rotationY>
+  <rotationZ>0</rotationZ>
+  <name>JiaoJ</name>
   <maxHealth>132</maxHealth>
-  <currentHealth>125</currentHealth>
+  <currentHealth>132</currentHealth>
   <baseDefence>2</baseDefence>
   <currentDefence>2</currentDefence>
   <currentLevel>3</currentLevel>
   <maxLevel>30</maxLevel>
   <baseExp>231</baseExp>
-  <currentExp>135</currentExp>
+  <currentExp>110</currentExp>
   <levelBuff>0.1</levelBuff>
-  <attackRange>1.8</attackRange>
+  <attackRange>2.2</attackRange>
   <skillRange>0</skillRange>
-  <coolDown>1</coolDown>
+  <coolDown>1.8</coolDown>
   <criticalMultiplier>2</criticalMultiplier>
-  <criticalChance>0.2</criticalChance>
-  <minDamage>21</minDamage>
-  <maxDamage>23</maxDamage>
+  <criticalChance>0.35</criticalChance>
+  <minDamage>30</minDamage>
+  <maxDamage>46</maxDamage>
   <stamina>0</stamina>
   <strength>0</strength>
   <agility>0</agility>

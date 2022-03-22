@@ -15,7 +15,7 @@ MonoBehaviour:
   dialoguePieces:
   - id: Piece01
     image: {fileID: 21300000, guid: 5af0eab4c09cb0c48ab552924c34197b, type: 3}
-    text: Do you get what I want?
+    text: Do you get what I want? If yes, I have a gift for you.
     quest: {fileID: 11400000, guid: a39473524dcc1274288591c54478fcde, type: 2}
     options:
     - text: Yes. Here you are!

@@ -95,6 +95,34 @@ MonoBehaviour:
     source: {fileID: 0}
     isLoop: 0
     audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: SlimerDie
+    clip: {fileID: 8300000, guid: fea9654a3bd042942b982703dd692512, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: TurtleDie
+    clip: {fileID: 8300000, guid: baf04ab10f3538a429a34ebbd59cc0b8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: GruntDie
+    clip: {fileID: 8300000, guid: baf04ab10f3538a429a34ebbd59cc0b8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
+  - name: GolemDie
+    clip: {fileID: 8300000, guid: baf04ab10f3538a429a34ebbd59cc0b8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    isLoop: 0
+    audioGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
   BGM: {fileID: 388317813}
   bgmMixerGroup: {fileID: -4153069930221843916, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}
   soundEffectsGroup: {fileID: -627850141357272000, guid: 85e2f708b73d7da4f9667ada40bd5fc3, type: 2}

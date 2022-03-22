@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <fileName>Player3</fileName>
+  <characterClass>Knight</characterClass>
+  <sceneName>InnTown</sceneName>
+  <positionX>24.4360447</positionX>
+  <positionY>0.08332968</positionY>
+  <positionZ>20.3387489</positionZ>
+  <rotationX>-0</rotationX>
+  <rotationY>297.314575</rotationY>
+  <rotationZ>0</rotationZ>
+  <name>Test</name>
+  <maxHealth>239</maxHealth>
+  <currentHealth>170</currentHealth>
+  <baseDefence>2</baseDefence>
+  <currentDefence>22</currentDefence>
+  <currentLevel>5</currentLevel>
+  <maxLevel>30</maxLevel>
+  <baseExp>1274</baseExp>
+  <currentExp>745</currentExp>
+  <levelBuff>0.1</levelBuff>
+  <attackRange>1.8</attackRange>
+  <skillRange>0</skillRange>
+  <coolDown>1</coolDown>
+  <criticalMultiplier>2</criticalMultiplier>
+  <criticalChance>0.2</criticalChance>
+  <minDamage>21</minDamage>
+  <maxDamage>23</maxDamage>
+  <stamina>0</stamina>
+  <strength>0</strength>
+  <agility>0</agility>
+  <intellect>0</intellect>
+</CharacterProfile>
