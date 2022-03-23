@@ -42,7 +42,11 @@ public class DialogueUI : Singleton<DialogueUI>
         if (currentIndex < currenData.dialoguePieces.Count)
             UpdateMainDialogue(currenData.dialoguePieces[currentIndex]);
         else
+        {
             dialoguePanel.SetActive(false);
+            currentObj.GetComponent<DialogueController>().willTalk = false;
+            currentObj.GetComponent<DialogueController>().isDialogueOpen = false;
+        }
     }
 
     public void UpdateDialogueData(DialogueData_SO data, GameObject dialogueObj) {

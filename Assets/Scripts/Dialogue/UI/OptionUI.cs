@@ -89,6 +89,8 @@ public class OptionUI : MonoBehaviour
                 }
             }
             DialogueUI.Instance.dialoguePanel.SetActive(false);
+            dialogueObj.GetComponent<DialogueController>().willTalk = false;
+            dialogueObj.GetComponent<DialogueController>().isDialogueOpen = false;
         }
         else{
             DialogueUI.Instance.UpdateMainDialogue(DialogueUI.Instance.currenData.dialogueIndex[nextPieceID]);

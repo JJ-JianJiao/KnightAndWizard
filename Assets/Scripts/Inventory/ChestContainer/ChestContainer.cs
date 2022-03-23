@@ -53,7 +53,8 @@ public class ChestContainer : MonoBehaviour
 
     private void Update()
     {
-        CheckOpenContainer();
+        if(GameManager.Instance.playerStates)
+            CheckOpenContainer();
     }
 
     private void CheckOpenContainer() {
