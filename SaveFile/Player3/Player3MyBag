@@ -2,19 +2,19 @@
     "items": [
         {
             "itemData": {
-                "instanceID": 22580
+                "instanceID": 0
             },
             "amount": 5
         },
         {
             "itemData": {
-                "instanceID": 22348
+                "instanceID": 0
             },
             "amount": 1
         },
         {
             "itemData": {
-                "instanceID": 46554
+                "instanceID": 0
             },
             "amount": 1
         },
@@ -26,7 +26,7 @@
         },
         {
             "itemData": {
-                "instanceID": 22348
+                "instanceID": 0
             },
             "amount": 1
         },

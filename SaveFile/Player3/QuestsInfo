@@ -19,7 +19,7 @@
     "rewards": [
         {
             "itemData": {
-                "instanceID": 22830
+                "instanceID": 0
             },
             "amount": 1
         }
@@ -40,13 +40,13 @@
     "rewards": [
         {
             "itemData": {
-                "instanceID": 22082
+                "instanceID": 0
             },
             "amount": 1
         },
         {
             "itemData": {
-                "instanceID": 22580
+                "instanceID": 0
             },
             "amount": -5
         }
@@ -67,7 +67,7 @@
     "rewards": [
         {
             "itemData": {
-                "instanceID": 22348
+                "instanceID": 0
             },
             "amount": 1
         }

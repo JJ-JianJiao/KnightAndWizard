@@ -2,30 +2,30 @@
 <CharacterProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <fileName>Player3</fileName>
   <characterClass>Knight</characterClass>
-  <sceneName>InnTown</sceneName>
-  <positionX>24.4360447</positionX>
-  <positionY>0.08332968</positionY>
-  <positionZ>20.3387489</positionZ>
+  <sceneName>MainLand</sceneName>
+  <positionX>56.9673042</positionX>
+  <positionY>0.0333344936</positionY>
+  <positionZ>15.385211</positionZ>
   <rotationX>-0</rotationX>
-  <rotationY>297.314575</rotationY>
-  <rotationZ>0</rotationZ>
+  <rotationY>75.60388</rotationY>
+  <rotationZ>-0</rotationZ>
   <name>Test</name>
   <maxHealth>239</maxHealth>
-  <currentHealth>170</currentHealth>
+  <currentHealth>239</currentHealth>
   <baseDefence>2</baseDefence>
-  <currentDefence>22</currentDefence>
+  <currentDefence>2</currentDefence>
   <currentLevel>5</currentLevel>
   <maxLevel>30</maxLevel>
   <baseExp>1274</baseExp>
   <currentExp>745</currentExp>
   <levelBuff>0.1</levelBuff>
-  <attackRange>1.8</attackRange>
+  <attackRange>2.2</attackRange>
   <skillRange>0</skillRange>
-  <coolDown>1</coolDown>
+  <coolDown>0.7</coolDown>
   <criticalMultiplier>2</criticalMultiplier>
   <criticalChance>0.2</criticalChance>
-  <minDamage>21</minDamage>
-  <maxDamage>23</maxDamage>
+  <minDamage>4</minDamage>
+  <maxDamage>6</maxDamage>
   <stamina>0</stamina>
   <strength>0</strength>
   <agility>0</agility>

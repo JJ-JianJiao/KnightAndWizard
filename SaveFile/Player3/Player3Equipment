@@ -2,13 +2,13 @@
     "items": [
         {
             "itemData": {
-                "instanceID": 22830
+                "instanceID": 0
             },
             "amount": 1
         },
         {
             "itemData": {
-                "instanceID": 22082
+                "instanceID": 0
             },
             "amount": 1
         }

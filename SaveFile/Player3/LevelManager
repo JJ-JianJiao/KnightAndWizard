@@ -2,16 +2,16 @@
 <GameLevelStates xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <activeFriendKnight>false</activeFriendKnight>
   <activeStrangeKnight>false</activeStrangeKnight>
-  <isDeadSlime1>true</isDeadSlime1>
-  <isDeadSlime2>true</isDeadSlime2>
+  <isDeadSlime1>false</isDeadSlime1>
+  <isDeadSlime2>false</isDeadSlime2>
   <isDeadSlime3>false</isDeadSlime3>
-  <isDeadTurtle1>true</isDeadTurtle1>
-  <isDeadTurtle2>true</isDeadTurtle2>
+  <isDeadTurtle1>false</isDeadTurtle1>
+  <isDeadTurtle2>false</isDeadTurtle2>
   <isDeadTurtle3>false</isDeadTurtle3>
-  <isDeadGrunt1>true</isDeadGrunt1>
-  <isDeadGrunt2>true</isDeadGrunt2>
-  <isDeadGrunt3>true</isDeadGrunt3>
-  <isDeadGolem1>true</isDeadGolem1>
+  <isDeadGrunt1>false</isDeadGrunt1>
+  <isDeadGrunt2>false</isDeadGrunt2>
+  <isDeadGrunt3>false</isDeadGrunt3>
+  <isDeadGolem1>false</isDeadGolem1>
   <isChestPickUp>true</isChestPickUp>
-  <isBigBrotherSaved>true</isBigBrotherSaved>
+  <isBigBrotherSaved>false</isBigBrotherSaved>
 </GameLevelStates>

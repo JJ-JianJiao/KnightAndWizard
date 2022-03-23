@@ -15,12 +15,32 @@ public class TransitionPoint : MonoBehaviour
 
     private bool canTrans;
 
+    public bool willTrans;
+
+    private void Awake()
+    {
+        MouseManager.Instance.ClearAllClickTarget += ClearTransInteract;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canTrans) {
+        //if (Input.GetKeyDown(KeyCode.E) && canTrans)
+        //{
+        //    SceneController Portal
+        //    SceneController.Instance.TransitionToDestination(this);
+        //}
+        if (willTrans && canTrans)
+        {
             //SceneController Portal
+            willTrans = false;
+            GameManager.Instance.playerStates.GetComponent<PlayerController>().StopMoving();
             SceneController.Instance.TransitionToDestination(this);
         }
+    }
+
+    private void OnMouseUp()
+    {
+        willTrans = true;
     }
 
     private void OnTriggerStay(Collider other)
@@ -33,5 +53,9 @@ public class TransitionPoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             canTrans = false;
+    }
+
+    private void ClearTransInteract() {
+        willTrans = false;
     }
 }
