@@ -46,10 +46,12 @@ public class PauseMenuUI : MonoBehaviour
         audioBtn.onClick.AddListener(AuidoOnClick);
         audioBackButton.onClick.AddListener(AudioBackButtonOnClick);
 
-        AudioManager.Instance.SetMusicAndSfx();
-        bgmSlider.value = AudioManager.Instance.musicSoundValue;
-        effectsSlider.value = AudioManager.Instance.sfxSoundValue;
-
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.SetMusicAndSfx();
+            bgmSlider.value = AudioManager.Instance.musicSoundValue;
+            effectsSlider.value = AudioManager.Instance.sfxSoundValue;
+        }
         backToMainIsClicked = false;
     }
 

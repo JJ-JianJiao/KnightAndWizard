@@ -169,4 +169,8 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    public void StopMoving() {
+        agent.destination = transform.position;
+    }
 }

@@ -13,6 +13,8 @@ public class MouseManager : Singleton<MouseManager>
     public event Action<Vector3> OnMouseClicked;
     public event Action<GameObject> OnEnemyClicked;
 
+    public event Action ClearAllClickTarget;
+
     //cursor's texture2D
     public Texture2D point, doorway, attack, target, arrow;
 
@@ -96,7 +98,7 @@ public class MouseManager : Singleton<MouseManager>
 
             if (hitInfo.collider.gameObject.CompareTag("Ground")) {
                 OnMouseClicked?.Invoke(hitInfo.point);
-
+                ClearAllClickTarget?.Invoke();
 
             }
             if (hitInfo.collider.gameObject.CompareTag("Enemy"))
@@ -115,10 +117,14 @@ public class MouseManager : Singleton<MouseManager>
             {
                 OnMouseClicked?.Invoke(hitInfo.point);
             }
-            //if (hitInfo.collider.gameObject.CompareTag("ChestContainer"))
-            //{
-            //    OnMouseClicked?.Invoke(hitInfo.point);
-            //}
+            if (hitInfo.collider.gameObject.CompareTag("ChestContainer"))
+            {
+                OnMouseClicked?.Invoke(hitInfo.point);
+            }
+            if (hitInfo.collider.gameObject.CompareTag("NPC"))
+            {
+                OnMouseClicked?.Invoke(hitInfo.point);
+            }
 
 
             if (hitInfo.collider.gameObject.CompareTag("MainDogKnight")) {

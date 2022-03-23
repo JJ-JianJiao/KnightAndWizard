@@ -25,6 +25,8 @@ public class NPCDialogueTrigger : MonoBehaviour
         {
             DialogueUI.Instance.dialoguePanel.SetActive(false);
             dialogueController.canTalk = false;
+            transform.parent.GetComponent<DialogueController>().willTalk = false;
+            transform.parent.GetComponent<DialogueController>().isDialogueOpen = false;
         }
     }
 }
