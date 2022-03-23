@@ -18,7 +18,7 @@ MonoBehaviour:
     text: 'Wow. Thank you so much. God bless. My brother is still alive.
 
       This
-      is my reward for you.+ '
+      is my reward for you.'
     quest: {fileID: 11400000, guid: de70fa026587814498a679e99777bbb1, type: 2}
     options:
     - text: Do not worry about that. Have a good day!

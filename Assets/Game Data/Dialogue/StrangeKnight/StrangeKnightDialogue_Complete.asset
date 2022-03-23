@@ -21,9 +21,13 @@ MonoBehaviour:
     - text: Yes. They have been wiped out by me.
       targetID: Piece02
       takeQuest: 0
+      needHeal: 0
+      needAlly: 0
     - text: Sorry, I need more time.
       targetID: 
       takeQuest: 0
+      needHeal: 0
+      needAlly: 0
   - id: Piece02
     image: {fileID: 21300000, guid: b9c7406905f3aca468a8a3f333883321, type: 3}
     text: 'Great!
@@ -31,6 +35,8 @@ MonoBehaviour:
       Here is your  reward!'
     quest: {fileID: 11400000, guid: 2df23d0cf0782d746b752f44e22121ae, type: 2}
     options:
-    - text: Thanks! The sword is great!
+    - text: Thanks! The shield is great!
       targetID: 
       takeQuest: 1
+      needHeal: 0
+      needAlly: 0

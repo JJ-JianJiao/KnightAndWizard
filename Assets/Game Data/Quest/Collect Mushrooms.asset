@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Collect Mushrooms
   m_EditorClassIdentifier: 
   questName: Collect Mushrooms
-  description: The FriendKnight will give me a legend shiled if I can collect 5 mushrooms!
+  description: The Priest will give me a legend weapon iif I can collect 5 mushrooms!
   isStarted: 0
   isComplete: 0
   isFinished: 0
