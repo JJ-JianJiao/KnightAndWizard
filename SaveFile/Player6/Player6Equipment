@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "itemData": {
+                "instanceID": 31286
+            },
+            "amount": 1
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "amount": 0
+        }
+    ]
+}

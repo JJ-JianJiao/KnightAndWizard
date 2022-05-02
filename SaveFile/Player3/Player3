@@ -3,11 +3,11 @@
   <fileName>Player3</fileName>
   <characterClass>Knight</characterClass>
   <sceneName>MainLand</sceneName>
-  <positionX>56.9673042</positionX>
+  <positionX>57.41349</positionX>
   <positionY>0.0333344936</positionY>
-  <positionZ>15.385211</positionZ>
+  <positionZ>18.3607712</positionZ>
   <rotationX>-0</rotationX>
-  <rotationY>75.60388</rotationY>
+  <rotationY>150.687073</rotationY>
   <rotationZ>-0</rotationZ>
   <name>Test</name>
   <maxHealth>239</maxHealth>
